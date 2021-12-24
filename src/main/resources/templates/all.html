@@ -6,10 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rafmak</title>
   <link rel="stylesheet" th:href="@{/css/grid.css}">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" th:href="@{/css/navbar.css}">
+     
+   
   <style>
  
     </style>
@@ -17,6 +16,26 @@
 
 <body>
 
+<nav class="navbar">
+   <div>
+   
+    <span><img th:src="@{img/logo.svg}" alt="Kvecerina_Logo" height="60">ZK</span>
+   
+   </div>
+   <ul id="menu-list" class="nav-list">
+    <li  class="list-item"><a href="#">Previous shows</a></li>
+    <li class="list-item"><a href="#">About</a></li>
+    <li class="list-item"><a href="#">Administration</a></li>
+   </ul>
+   
+   <div id="menu" class="menu">
+   
+   <div class="menu-line"></div>
+   <div class="menu-line"></div>
+   <div class="menu-line"></div>
+   </div>
+</nav>
+<!--  
 <div class="cover-container d-flex p-3 mx-auto flex-column">
     <header class="mb-auto">
         <div>
@@ -37,6 +56,7 @@
       </header>
   
 </div>
+-->
 
  <div class="container">
 <h1 class="middle">shows</h1>
@@ -46,7 +66,7 @@
              <article class='room' th:each="show : ${shows}" >
             
               <div class="price-top">
-                 <img th:src="${show.imageUrl}" alt='sander image'/> 
+                 <img class="img" th:src="${show.imageUrl}" alt='sander image'/> 
 
               </div>
               <a th:href="@{/single/{id}(id=${show.id})}" th:text="${show.name}" class='btn-primary room-link'>
@@ -60,6 +80,7 @@
         </section>
 
 </div>
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
 
 </html>

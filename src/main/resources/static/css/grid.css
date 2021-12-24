@@ -11,8 +11,12 @@
   padding: 5rem 0;
 }
 
-img {
+.img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+body {
+	background-color: #d1b3ff;
 }
