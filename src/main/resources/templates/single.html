@@ -18,6 +18,14 @@
 
 <h1 th:text="${show.filename}"></h1>
 
+<div class="price-top">
+ <img th:src="${show.imageUrl}" alt='sander image'/>  
+</div>
+<form th:action="@{/updateImage/{id}(id=${show.id})}" enctype="multipart/form-data" method="post"  >
+          <input type="file" name="fileImage" id="fileImage"  required="required"/>
+                  <button>change</button>
+          </form>
+
  <div class="container-audio">
               <audio controls >
                <source th:src="${show.url}" type="audio/mp3">

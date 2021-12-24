@@ -25,7 +25,7 @@ public class ShowService {
     return shows;
 	}
 
-	public Object findById(Integer id) {
+	public Show findById(Integer id) {
 		Show show = showRepository.findById(id).get();
 		return show;
 	}
@@ -39,6 +39,11 @@ public class ShowService {
 		newShow.setImageUrl("/img/galeb.jpg");
 		audioService.uploadAudio(multiPartFile);
 		return showRepository.save(newShow);
+	}
+	
+	public Show updateShow(Show show) {
+		return showRepository.save(show);
+		
 	}
 	
 	

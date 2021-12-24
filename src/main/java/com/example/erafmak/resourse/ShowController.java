@@ -26,6 +26,9 @@ public class ShowController {
 	@Autowired
 	ShowService showService;
 	
+	@Autowired
+	ImageService imageService;
+	
 	@GetMapping("/")
 	public String getIndex() {
 		return "index";
@@ -35,7 +38,6 @@ public class ShowController {
 	public String getAll(Model model) {
 		
 		model.addAttribute("shows", showService.findAllShows());
-		
 		return "all";
 	}
 	
@@ -50,7 +52,6 @@ public class ShowController {
 	public String newShow(Model model) {
 		
 		model.addAttribute("show", new Show());
-		
 		return "new";
 	}
 	
@@ -58,9 +59,13 @@ public class ShowController {
 	public String create(@ModelAttribute("show") Show show,  @RequestParam("fileImage") MultipartFile multiPartFile) throws IOException {
 		
 		Show newShow = showService.addNewShow(show, multiPartFile);
-			
-	    return "redirect:/single/" + newShow.getId();
-		
+		return "redirect:/single/" + newShow.getId();
+	}
+	
+	@PostMapping("/updateImage/{id}")
+	public String updateShowImage(@PathVariable("id")Integer id,@RequestParam("fileImage") MultipartFile multiPartFile) throws IOException {
+		imageService.updateShowImage(id, multiPartFile);
+		return "redirect:/single/" + id;
 		
 	}
 	
