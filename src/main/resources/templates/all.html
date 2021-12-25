@@ -16,47 +16,8 @@
 
 <body>
 
-<nav class="navbar">
-   <div>
-   
-    <span><img th:src="@{img/logo.svg}" alt="Kvecerina_Logo" height="60">ZK</span>
-   
-   </div>
-   <ul id="menu-list" class="nav-list">
-    <li  class="list-item"><a href="#">Previous shows</a></li>
-    <li class="list-item"><a href="#">About</a></li>
-    <li class="list-item"><a href="#">Administration</a></li>
-   </ul>
-   
-   <div id="menu" class="menu">
-   
-   <div class="menu-line"></div>
-   <div class="menu-line"></div>
-   <div class="menu-line"></div>
-   </div>
-</nav>
-<!--  
-<div class="cover-container d-flex p-3 mx-auto flex-column">
-    <header class="mb-auto">
-        <div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand text-start" href="/">
-                        <img th:src="@{img/logo.svg}" alt="Kvecerina_Logo" height="30">
-                        Zavodliva Kvecerina
-                    </a>
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="btn custom-button btn-outline-warning text-end"target="_blank" href="/" rel="noopener" >Learn More</a>
-                        </li>
-                    </ul>
-                </div>
-              </nav>
-        </div>
-      </header>
-  
-</div>
--->
+<div th:replace="fragments/navbar :: navbar"></div>
+
 
  <div class="container">
 <h1 class="middle">shows</h1>

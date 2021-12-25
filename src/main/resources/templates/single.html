@@ -4,10 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rafmak</title>
+  <title>Kvecerina</title>
   <link rel="stylesheet" th:href="@{/css/audio.css}">
-     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+     
    <link href='https://fonts.googleapis.com/css?family=Allerta' rel='stylesheet'>
+   <link rel="stylesheet" th:href="@{/css/navbar.css}">
    
   <style>
  
@@ -15,6 +16,8 @@
 </head>
 
 <body>
+
+<div th:replace="fragments/navbar :: navbar"></div>
 
 <h1 th:text="${show.filename}"></h1>
 
@@ -103,6 +106,7 @@
             <div class="row"></div>
         </div>
     </div> 
+    <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
 
 </html>          
