@@ -27,7 +27,7 @@ public class Song {
 	
 	private String name;
 	
-	private String releaseDate;
+	private String releaseYear;
 	
 	@ManyToMany
 	private List<Artist> artists;

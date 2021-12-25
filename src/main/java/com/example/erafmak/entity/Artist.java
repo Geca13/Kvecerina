@@ -1,6 +1,6 @@
 package com.example.erafmak.entity;
 
-import java.util.List;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,5 +25,7 @@ public class Artist {
 	private Integer id;
 	
 	private String fullName;
+	
+	private String imageUrl;
 
 }

@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.erafmak.entity.Artist;
 import com.example.erafmak.entity.Show;
+import com.example.erafmak.entity.Song;
 import com.example.erafmak.repository.ShowRepository;
 
 @Controller
@@ -43,7 +45,8 @@ public class ShowController {
 	
 	@GetMapping("/single/{id}")
 	public String getSingle(Model model ,@PathVariable("id")Integer id) {
-		
+		model.addAttribute("artist", new Artist());
+		model.addAttribute("song", new Song());
 		model.addAttribute("show", showService.findById(id));
 		return "single";
 	}

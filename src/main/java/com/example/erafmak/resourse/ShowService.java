@@ -1,6 +1,7 @@
 package com.example.erafmak.resourse;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,7 @@ public class ShowService {
 		newShow.setFilename(fileName);
 		newShow.setUrl("/audios/" + fileName);
 		newShow.setImageUrl("/img/galeb.jpg");
+		newShow.setSongs(new ArrayList<>());
 		audioService.uploadAudio(multiPartFile);
 		return showRepository.save(newShow);
 	}
