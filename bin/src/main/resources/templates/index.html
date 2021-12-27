@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kvecerina</title>
+  <link rel="stylesheet" th:href="@{/css/navbar.css}">
+     
+   
+  <style>
+ 
+    </style>
+</head>
+
+<body>
+  
+  <div th:replace="fragments/navbar :: navbar"></div>
+  
+  <a th:href="@{/new}" class='btn-primary room-link'>new </a>
+  <a th:href="@{/all}" class='btn-primary room-link'>all </a>
+  
+ 
+
+
+  
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
+</body>
+
+</html>

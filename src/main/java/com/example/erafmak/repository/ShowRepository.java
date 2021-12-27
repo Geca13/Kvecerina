@@ -8,4 +8,9 @@ import com.example.erafmak.entity.Show;
 @Repository
 public interface ShowRepository extends JpaRepository<Show, Integer> {
 
+	Show findTopByOrderByIdDesc();
+
+	
+
+
 }

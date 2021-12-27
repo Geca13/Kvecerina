@@ -32,7 +32,8 @@ public class ShowController {
 	ImageService imageService;
 	
 	@GetMapping("/")
-	public String getIndex() {
+	public String getIndex(Model model) {
+		model.addAttribute("show", showService.lastShow());
 		return "index";
 	}
 	

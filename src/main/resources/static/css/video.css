@@ -1,0 +1,11 @@
+.video {
+	display: none;
+}
+
+.hidden {
+	display: none;
+}
+
+.video-active {
+	display: block;
+}

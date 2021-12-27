@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kvecerina</title>
-  <link rel="stylesheet" th:href="@{/css/audio.css}">
-     
+   <link rel="stylesheet" th:href="@{/css/audio.css}">
    <link href='https://fonts.googleapis.com/css?family=Allerta' rel='stylesheet'>
    <link rel="stylesheet" th:href="@{/css/navbar.css}">
    <link rel="stylesheet" th:href="@{/css/table.css}">
+   <link rel="stylesheet" th:href="@{/css/popup.css}">
+   <link rel="stylesheet" th:href="@{/css/video.css}">
    
   <style>
  
@@ -23,91 +24,21 @@
 <h1 th:text="${show.filename}"></h1>
 
 <div class="price-top">
- <img th:src="${show.imageUrl}" alt='sander image'/>  
+ <img id="image" class="image" th:src="${show.imageUrl}" alt='sander image'/>  
+ <video id="video" class="video" th:src="@{/videos/video.mkv}"></video>
 </div>
+
 <form th:action="@{/updateImage/{id}(id=${show.id})}" enctype="multipart/form-data" method="post"  >
           <input type="file" name="fileImage" id="fileImage"  required="required"/>
                   <button>change</button>
           </form>
 
  <div class="container-audio">
-              <audio controls >
-               <source th:src="${show.url}" type="audio/mp3">
-              
+              <audio id="audio" controls >
+               <source th:src="${show.url}" >
               </audio>
 </div>   
-<div class="container-audio">
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-        <div class="colum1">
-            <div class="row"></div>
-        </div>
-    </div> 
-    
+
     <div class="small-container cart-page container-audio">
     <table>
      <tr>
@@ -129,16 +60,7 @@
       <td th:text="${song.releaseYear}" ></td>
       <td >
       
-      <form th:action="@{/newArtist/{id}/{sid}(id=${show.id},sid=${song.id})}" th:object="${artist}" method="post">
-      <div class="">
-      <input th:field="*{fullName}" type="text" maxlength="100" required="required"/>
-      <label for="input" class="control-label">Artist Name</label><i class="bar"></i>
-    </div>
-    
-    <div class="">
-      <button type="submit" class="">Submit</button>
-    </div>
-    </form>
+      
       
       </td>
      </tr>
@@ -146,22 +68,40 @@
     
     
    </div>
-    <div>
-    <form th:action="@{/newSong/{id}(id=${show.id})}" th:object="${song}" method="post">
-      <div class="form-group">
-      <input th:field="*{name}" type="text" maxlength="100" required="required"/>
-      <label for="input" class="control-label">Song Title</label><i class="bar"></i>
-    </div>
-    
-    <div class="form-group">
-      <input th:field="*{releaseYear}" type="text" maxlength="100" required="required"/>
-      <label for="input" class="control-label">Year</label><i class="bar"></i>
-    </div>
-    <div class="button-container">
-      <button type="submit" class="button">Submit</button>
-    </div>
+   
+   <button id="artist-open-popup">op</button>
+   
+   
+   <div id="artist-popup" class="artist-popup">
+   <div class="overlay"> </div>
+   <div class="content">
+   <div id="close-btn" class="close-btn">&times</div>
+    <form th:action="@{/newArtist/{id}/{sid}(id=${show.id},sid=${song.id})}" th:object="${artist}" method="post">
+      <input th:field="*{fullName}" type="text" maxlength="100" required="required"/>
+      <label for="input" class="control-label">Artist Name</label><i class="bar"></i>
+      <button id="artist-btn" type="submit" class="">Submit</button>
     </form>
     </div>
+   </div>
+   
+   <button id="song-open-popup">sop</button>
+   
+   <div id="song-popup" class="song-popup">
+   <div class="overlay1"> </div>
+   <div class="content1">
+   <div id="close-btn1" class="close-btn1">&times</div>
+    <form th:action="@{/newSong/{id}(id=${show.id})}" th:object="${song}" method="post">
+      <input th:field="*{name}" type="text" maxlength="100" required="required"/>
+      <label for="input" class="control-label">Song Title</label><i class="bar"></i>
+     <input th:field="*{releaseYear}" type="text" maxlength="100" required="required"/>
+      <label for="input" class="control-label">Year</label><i class="bar"></i>
+    <button id="song-btn" type="submit" class="button">Submit</button>
+    </form>
+    </div>
+   </div>
+   
+    <script type="text/javascript" th:src="@{/js/video.js}"></script>
+    <script type="text/javascript" th:src="@{/js/popup.js}"></script>
     <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
 

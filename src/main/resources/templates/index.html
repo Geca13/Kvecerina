@@ -20,7 +20,12 @@
   <a th:href="@{/new}" class='btn-primary room-link'>new </a>
   <a th:href="@{/all}" class='btn-primary room-link'>all </a>
   
- 
+  <h6 th:text="${show.name}"></h6>
+ <div class="container-audio">
+              <audio id="audio" controls >
+               <source th:src="${show.url}" >
+              </audio>
+</div>
 
 
   

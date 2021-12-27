@@ -47,6 +47,14 @@ public class ShowService {
 		return showRepository.save(show);
 		
 	}
+
+	public Show lastShow() {
+		
+		Show show =showRepository.findTopByOrderByIdDesc();
+		return show;
+	}
+
+	
 	
 	
 	
