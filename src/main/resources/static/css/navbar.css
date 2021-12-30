@@ -2,6 +2,10 @@
 	margin: 0;
 }
 
+:root {
+  --primary-color: #333;
+}
+
 .navbar{
 	background-color: white;
 	color: black;
@@ -46,6 +50,13 @@ span{
 	
 }
 
+.section-footer {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 4rem 0;
+  text-align: center;
+}
+
 @media all and (max-width: 580px){
 	.navbar{
 	flex-direction: column;
@@ -71,4 +82,9 @@ span{
     .active {
     display: block;
     }
+    
+    .section-footer {
+    padding: 2rem 0;
+    text-align: center;
+  }
 }
