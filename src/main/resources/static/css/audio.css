@@ -7,12 +7,10 @@ body {
     text-align:center;
     color:#fff;
 }
-h3{
-    text-shadow:1px 1px 1px #fff;
-}
+
 /* Start  styling the page */
 .container-audio {
-    width: 66%;
+    width: 90%;
     height: auto;
     padding: 20px;
     border-radius: 5px;

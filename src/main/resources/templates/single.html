@@ -10,7 +10,7 @@
    <link rel="stylesheet" th:href="@{/css/navbar.css}">
    <link rel="stylesheet" th:href="@{/css/table.css}">
    <link rel="stylesheet" th:href="@{/css/popup.css}">
-   <link rel="stylesheet" th:href="@{/css/video.css}">
+   
    
   <style>
  
@@ -23,9 +23,9 @@
 
 <h1 th:text="${show.filename}"></h1>
 
-<div class="price-top">
+<div class="top">
  <img id="image" class="image" th:src="${show.imageUrl}" alt='sander image'/>  
- <video id="video" class="video" th:src="@{/videos/video.mkv}"></video>
+ 
 </div>
 
 <form th:action="@{/updateImage/{id}(id=${show.id})}" enctype="multipart/form-data" method="post"  >
@@ -39,49 +39,40 @@
               </audio>
 </div>   
 
-    <div class="small-container cart-page container-audio">
+    <div class="small-container container-audio">
     <table>
      <tr>
       <th>Artist</th>
       <th>Song</th>
-      <th>Year Released</th>
-      <th>Year Released</th>
+      <th class="hide">Year Released</th>
+      
      </tr>
      <tr th:each="song : ${show.songs}" class="cart">
       <td >
         <div class="cart-info " th:each="artist : ${song.artists}" >
           <img th:src="${artist.imageUrl}">
-           <div class="cart1">
+          <form class="hide" th:action="@{/updateArtistImage/{id}/{aid}(id=${show.id},aid=${artist.id})}" enctype="multipart/form-data" method="post"  >
+          <input type="file" name="fileImage" id="fileImage"  required="required"/>
+                  <button>change</button>
+          </form>
+           <div class="hide">
             <p th:text="${artist.fullName}"></p>
             </div>
         </div>
+        <form th:action="@{/newArtist/{id}/{sid}(id=${show.id},sid=${song.id})}" th:object="${artist}" method="post">
+      <input th:field="*{fullName}" type="text" maxlength="100" required="required"/>
+      <label for="input" class="control-label">A</label><i class="bar"></i>
+      <button id="artist-btn" type="submit" class="">Submit</button>
+    </form>
+    
       </td>
       <td th:text="${song.name}"></td>
-      <td th:text="${song.releaseYear}" ></td>
-      <td >
+      <td class="hide" th:text="${song.releaseYear}" ></td>
       
-      
-      
-      </td>
      </tr>
     </table>
     
     
-   </div>
-   
-   <button id="artist-open-popup">op</button>
-   
-   
-   <div id="artist-popup" class="artist-popup">
-   <div class="overlay"> </div>
-   <div class="content">
-   <div id="close-btn" class="close-btn">&times</div>
-    <form th:action="@{/newArtist/{id}/{sid}(id=${show.id},sid=${song.id})}" th:object="${artist}" method="post">
-      <input th:field="*{fullName}" type="text" maxlength="100" required="required"/>
-      <label for="input" class="control-label">Artist Name</label><i class="bar"></i>
-      <button id="artist-btn" type="submit" class="">Submit</button>
-    </form>
-    </div>
    </div>
    
    <button id="song-open-popup">sop</button>
@@ -101,7 +92,7 @@
    </div>
    <div th:replace="fragments/footer :: footer"></div>
    
-    <script type="text/javascript" th:src="@{/js/video.js}"></script>
+    
     <script type="text/javascript" th:src="@{/js/popup.js}"></script>
     <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>

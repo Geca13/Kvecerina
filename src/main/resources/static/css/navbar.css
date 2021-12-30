@@ -15,9 +15,13 @@
 	font-size: 20px;
 }
 
+.navbar img{
+	width: 150px;
+	height: auto;
+}
+
 .nav-list{
 	list-style-type: none;
-	
 }
 
 .nav-list .list-item{
@@ -25,10 +29,7 @@
 	padding: 20px 10px;
 }
 
-span{
-	font-size: 80px;
-	color: pink;
-}
+
 .navbar a{
 	text-decoration: none;
 	color:pink;
@@ -54,7 +55,13 @@ span{
   background: var(--primary-color);
   color: #fff;
   padding: 4rem 0;
+  
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
   text-align: center;
+  
 }
 
 @media all and (max-width: 580px){
@@ -86,5 +93,6 @@ span{
     .section-footer {
     padding: 2rem 0;
     text-align: center;
+    
   }
 }
