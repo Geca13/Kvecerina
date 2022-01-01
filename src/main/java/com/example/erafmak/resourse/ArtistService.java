@@ -1,6 +1,7 @@
 package com.example.erafmak.resourse;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,10 @@ public class ArtistService {
 		imageService.uploadImage(multiPartFile);
 		artistRepository.save(artist);
 		
+	}
+	
+	public List<Artist> artists(){
+		return artistRepository.findByOrderByFullNameAsc();
 	}
 	
 	

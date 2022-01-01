@@ -10,6 +10,8 @@
    <link rel="stylesheet" th:href="@{/css/navbar.css}">
    <link rel="stylesheet" th:href="@{/css/table.css}">
    <link rel="stylesheet" th:href="@{/css/popup.css}">
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+   
    
    
   <style>
@@ -75,7 +77,7 @@
     
    </div>
    
-   <button id="song-open-popup">sop</button>
+   <a th:href="@{/newSong/{id}(id=${show.id})}">Нова Песна</a>
    
    <div id="song-popup" class="song-popup">
    <div class="overlay1"> </div>
@@ -86,6 +88,16 @@
       <label for="input" class="control-label">Song Title</label><i class="bar"></i>
      <input th:field="*{releaseYear}" type="text" maxlength="100" required="required"/>
       <label for="input" class="control-label">Year</label><i class="bar"></i>
+      <h3>Изведувач(и)</h3>
+    
+    <ul>
+  <li th:each="artist : ${artists}">
+  
+    <input  type="checkbox" th:value="${artist.id}" th:field="*{artists}" />
+    <label  th:text="${artist.fullName}"></label>
+   
+  </li>
+</ul>
     <button id="song-btn" type="submit" class="button">Submit</button>
     </form>
     </div>

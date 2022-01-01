@@ -33,7 +33,7 @@ public class SongService {
 		Song newSong = new Song();
 		newSong.setName(song.getName());
 		newSong.setReleaseYear(song.getReleaseYear());
-		newSong.setArtists(new ArrayList<>());
+		newSong.setArtists(song.getArtists());
 		songRepository.save(newSong);
 		show.getSongs().add(newSong);
 		showService.updateShow(show);

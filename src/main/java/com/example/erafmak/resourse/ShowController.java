@@ -31,6 +31,9 @@ public class ShowController {
 	@Autowired
 	ImageService imageService;
 	
+	@Autowired
+	ArtistService artistService;
+	
 	@GetMapping("/")
 	public String getIndex(Model model) {
 		model.addAttribute("show", showService.lastShow());
@@ -49,6 +52,7 @@ public class ShowController {
 		model.addAttribute("artist", new Artist());
 		model.addAttribute("song", new Song());
 		model.addAttribute("show", showService.findById(id));
+		model.addAttribute("artists", artistService.artists());
 		return "single";
 	}
 	
