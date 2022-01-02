@@ -1,4 +1,4 @@
-package com.example.erafmak.resourse;
+package com.example.zavodliva.resourse;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.erafmak.entity.Artist;
-import com.example.erafmak.entity.Song;
-import com.example.erafmak.repository.ArtistRepository;
+import com.example.zavodliva.entity.Artist;
+import com.example.zavodliva.entity.Song;
+import com.example.zavodliva.repository.ArtistRepository;
 
 @Service
 public class ArtistService {

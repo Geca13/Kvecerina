@@ -1,4 +1,4 @@
-package com.example.erafmak.resourse;
+package com.example.zavodliva.resourse;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.erafmak.entity.Show;
+import com.example.zavodliva.entity.Show;
 
 @Service
 public class ImageService {

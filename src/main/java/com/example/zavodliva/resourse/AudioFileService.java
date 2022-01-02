@@ -1,4 +1,4 @@
-package com.example.erafmak.resourse;
+package com.example.zavodliva.resourse;
 
 import java.io.IOException;
 import java.io.InputStream;

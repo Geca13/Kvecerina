@@ -1,4 +1,4 @@
-package com.example.erafmak.entity;
+package com.example.zavodliva.entity;
 
 import java.util.List;
 
@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Song {
+public class Show {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,9 +26,13 @@ public class Song {
 	
 	private String name;
 	
-	private String releaseYear;
+	private String imageUrl;
+	
+	private String filename;
+	
+	private String url;
 	
 	@ManyToMany
-	private List<Artist> artists;
+	private List<Song> songs;
 
 }

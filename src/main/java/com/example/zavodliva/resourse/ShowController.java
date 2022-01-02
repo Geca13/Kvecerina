@@ -1,4 +1,4 @@
-package com.example.erafmak.resourse;
+package com.example.zavodliva.resourse;
 
 import java.io.IOException;
 
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.erafmak.entity.Artist;
-import com.example.erafmak.entity.Show;
-import com.example.erafmak.entity.Song;
-import com.example.erafmak.repository.ShowRepository;
+import com.example.zavodliva.entity.Artist;
+import com.example.zavodliva.entity.Show;
+import com.example.zavodliva.entity.Song;
+import com.example.zavodliva.repository.ShowRepository;
 
 @Controller
 public class ShowController {
@@ -34,11 +34,7 @@ public class ShowController {
 	@Autowired
 	ArtistService artistService;
 	
-	@GetMapping("/")
-	public String getIndex(Model model) {
-		model.addAttribute("show", showService.lastShow());
-		return "index";
-	}
+	
 	
 	@GetMapping("/all")
 	public String getAll(Model model) {

@@ -1,13 +1,13 @@
-package com.example.erafmak.resourse;
+package com.example.zavodliva.resourse;
 
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.erafmak.entity.Show;
-import com.example.erafmak.entity.Song;
-import com.example.erafmak.repository.SongRepository;
+import com.example.zavodliva.entity.Show;
+import com.example.zavodliva.entity.Song;
+import com.example.zavodliva.repository.SongRepository;
 
 @Service
 public class SongService {

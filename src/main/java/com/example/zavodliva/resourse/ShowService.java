@@ -1,4 +1,4 @@
-package com.example.erafmak.resourse;
+package com.example.zavodliva.resourse;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.erafmak.entity.Show;
-import com.example.erafmak.repository.ShowRepository;
+import com.example.zavodliva.entity.Show;
+import com.example.zavodliva.repository.ShowRepository;
 
 @Service
 public class ShowService {

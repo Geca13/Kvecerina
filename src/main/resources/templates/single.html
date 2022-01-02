@@ -79,29 +79,7 @@
    
    <a th:href="@{/newSong/{id}(id=${show.id})}">Нова Песна</a>
    
-   <div id="song-popup" class="song-popup">
-   <div class="overlay1"> </div>
-   <div class="content1">
-   <div id="close-btn1" class="close-btn1">&times</div>
-    <form th:action="@{/newSong/{id}(id=${show.id})}" th:object="${song}" method="post">
-      <input th:field="*{name}" type="text" maxlength="100" required="required"/>
-      <label for="input" class="control-label">Song Title</label><i class="bar"></i>
-     <input th:field="*{releaseYear}" type="text" maxlength="100" required="required"/>
-      <label for="input" class="control-label">Year</label><i class="bar"></i>
-      <h3>Изведувач(и)</h3>
-    
-    <ul>
-  <li th:each="artist : ${artists}">
-  
-    <input  type="checkbox" th:value="${artist.id}" th:field="*{artists}" />
-    <label  th:text="${artist.fullName}"></label>
    
-  </li>
-</ul>
-    <button id="song-btn" type="submit" class="button">Submit</button>
-    </form>
-    </div>
-   </div>
    <div th:replace="fragments/footer :: footer"></div>
    
     

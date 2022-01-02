@@ -1,17 +1,17 @@
-let artistPopup = document.getElementById('artist-popup'); 
-let artistOpenBtn = document.getElementById('artist-open-popup'); 
+let loginPopup = document.getElementById('login-popup'); 
+let loginOpenBtn = document.getElementById('login-open-popup'); 
 
-if(artistOpenBtn){
-artistOpenBtn.addEventListener('click',function(){
-artistPopup.classList.add('active');
+if(loginOpenBtn){
+loginOpenBtn.addEventListener('click',function(){
+loginPopup.classList.add('active');
  })
 }
 
 let closeBtn = document.getElementById('close-btn');
 if(closeBtn){
 closeBtn.addEventListener('click',function(){
-let artistPopup = document.getElementById('artist-popup'); 
-artistPopup.classList.remove('active');
+let loginPopup = document.getElementById('login-popup'); 
+loginPopup.classList.remove('active');
  })
 }
 
