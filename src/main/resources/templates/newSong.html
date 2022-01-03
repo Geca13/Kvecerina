@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rafmak</title>
+  <title>Квечерина</title>
   <link rel="stylesheet" th:href="@{/css/forms.css}">
   <link rel="stylesheet" th:href="@{/css/navbar.css}">
    <link rel="stylesheet" th:href="@{/css/popup.css}">
@@ -25,7 +25,7 @@
 <div class="container">
 
 <form th:action="@{/newSong/{id}(id=${show.id})}" th:object="${song}" enctype="multipart/form-data" method="post">
-  <h1>Форма за нова песна</h1>
+  <h1>Песна</h1>
     <div th:if="${error != null}" class="error-msg">
        <i class="fa fa-times-circle"></i>
         [[${error}]]

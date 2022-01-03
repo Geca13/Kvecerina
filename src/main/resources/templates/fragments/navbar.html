@@ -12,6 +12,8 @@
             <i class="fab fa-facebook fa-2x"></i>
           </a></li>
     <li sec:authorize="isAuthenticated()" class="list-item"><a th:href="@{/new}">Нова</a></li>
+     <li sec:authorize="isAuthenticated()" class="list-item"><a th:href="@{/artists}">Изведувачи</a></li>
+    
     <li sec:authorize="hasRole('ROLE_ANONYMOUS')" class="list-item"><a type="button" id="login-open-popup"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
     <li sec:authorize="isAuthenticated()" class="list-item"><a th:href="@{/logout}"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
    </ul>
@@ -33,17 +35,17 @@
           
           <div  class="form-group">
            <input name="username" maxlength="100" type="email" required="required"/>
-           <label for="input"  class="control-label">Електронска пошта</label><i class="bar"></i>
+           <label for="input"  class="control-label">Ð•Ð»ÐµÐºÑ‚Ñ€Ð¾Ð½Ñ�ÐºÐ° Ð¿Ð¾ÑˆÑ‚Ð°</label><i class="bar"></i>
           </div>
     
          <div class="form-group">
            <input type="password" name="password" maxlength="15" required="required"/>
-           <label for="input" class="control-label">Лозинка</label><i class="bar"></i>
+           <label for="input" class="control-label">Ð›Ð¾Ð·Ð¸Ð½ÐºÐ°</label><i class="bar"></i>
          </div>
          
             	
           <div class="button-container">
-           <button type="submit" class="button"><span>Поднеси</span></button>
+           <button type="submit" class="button"><span>ÐŸÐ¾Ð´Ð½ÐµÑ�Ð¸</span></button>
           </div>
         </form>
       </div>

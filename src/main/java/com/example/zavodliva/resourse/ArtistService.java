@@ -34,8 +34,8 @@ public class ArtistService {
 		songService.updateSong(song);
 	}
 
-	public void updateImage(Integer aid, MultipartFile multiPartFile) throws IOException {
-		Artist artist = artistRepository.findById(aid).get();
+	public void updateImage(Integer id, MultipartFile multiPartFile) throws IOException {
+		Artist artist = findArtistById(id);
 		String fileName = StringUtils.cleanPath(multiPartFile.getOriginalFilename());
 		artist.setImageUrl("/img/" + fileName);
 		imageService.uploadImage(multiPartFile);
@@ -45,6 +45,17 @@ public class ArtistService {
 	
 	public List<Artist> artists(){
 		return artistRepository.findByOrderByFullNameAsc();
+	}
+
+	public void updateArtistName(Integer id, String fullName) {
+		Artist artist = findArtistById(id);
+		artist.setFullName(fullName);
+		artistRepository.save(artist);
+	}
+
+	private Artist findArtistById(Integer id) {
+		Artist artist = artistRepository.findById(id).get();
+		return artist;
 	}
 	
 	
