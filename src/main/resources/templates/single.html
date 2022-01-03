@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kvecerina</title>
+  <title>Квечерина</title>
    <link rel="stylesheet" th:href="@{/css/audio.css}">
    <link href='https://fonts.googleapis.com/css?family=Allerta' rel='stylesheet'>
    <link rel="stylesheet" th:href="@{/css/navbar.css}">
@@ -30,7 +30,7 @@
  
 </div>
 
-<form th:action="@{/updateImage/{id}(id=${show.id})}" enctype="multipart/form-data" method="post"  >
+<form sec:authorize="isAuthenticated()" th:action="@{/updateImage/{id}(id=${show.id})}" enctype="multipart/form-data" method="post"  >
           <input type="file" name="fileImage" id="fileImage"  required="required"/>
                   <button>change</button>
           </form>
@@ -53,7 +53,7 @@
       <td >
         <div class="cart-info " th:each="artist : ${song.artists}" >
           <img th:src="${artist.imageUrl}">
-          <form class="hide" th:action="@{/updateArtistImage/{id}/{aid}(id=${show.id},aid=${artist.id})}" enctype="multipart/form-data" method="post"  >
+          <form sec:authorize="isAuthenticated()" class="hide" th:action="@{/updateArtistImage/{id}/{aid}(id=${show.id},aid=${artist.id})}" enctype="multipart/form-data" method="post"  >
           <input type="file" name="fileImage" id="fileImage"  required="required"/>
                   <button>change</button>
           </form>
@@ -61,7 +61,7 @@
             <p th:text="${artist.fullName}"></p>
             </div>
         </div>
-        <form th:action="@{/newArtist/{id}/{sid}(id=${show.id},sid=${song.id})}" th:object="${artist}" method="post">
+        <form sec:authorize="isAuthenticated()" th:action="@{/newArtist/{id}/{sid}(id=${show.id},sid=${song.id})}" th:object="${artist}" method="post">
       <input th:field="*{fullName}" type="text" maxlength="100" required="required"/>
       <label for="input" class="control-label">A</label><i class="bar"></i>
       <button id="artist-btn" type="submit" class="">Submit</button>
