@@ -44,6 +44,47 @@ section{
   margin: 50px 150px;
 }
 
+.input {
+	width: 50%;
+	margin: 10px 0px;
+	height: 20px;
+	background: none;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+
+.input-btn {
+	background-color: violet;
+	border-color: pink;
+}
+
+.filter{
+	display: flex;
+  justify-content: space-between;
+}
+
+.link-btn {
+	display: block;
+    text-decoration:none;
+    height: 10px;
+    background: #4E9CAF;
+    
+    text-align: center;
+    
+    color: white;
+    
+    line-height: 25px;
+}
+
+.col{
+	width: 50%;
+}
+
+.row{
+	
+}
+
 
 @media (max-width: 700px) {
 	
@@ -62,6 +103,16 @@ section{
 
 section{
   margin: 10px;
+}
+
+.input {
+	width: 50%;
+	margin: 10px 0px;
+	height: 20px;
+	background: none;
+	border-top: none;
+	border-left: none;
+	border-right: none;
 }
 }
   
