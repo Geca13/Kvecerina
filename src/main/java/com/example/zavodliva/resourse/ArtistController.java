@@ -3,6 +3,7 @@ package com.example.zavodliva.resourse;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,17 +22,17 @@ public class ArtistController {
 	ArtistService artistService;
 	
 	@GetMapping("/artists")
-	public String getArtistsPage(Model model) {
-		model.addAttribute("artists", artistService.artists());
+	public String getArtistsPage(Model model,@Param(value = "search") String search) {
+		model.addAttribute("artists", artistService.artists(search));
+		model.addAttribute("newArtist", new Artist());
 		return "artists";
 	}
 	
 	
-	@PostMapping("/newArtist/{id}/{sid}")
-	public String createArtist(@ModelAttribute("artist") Artist artist, @PathVariable("id")Integer id, @PathVariable("sid")Integer sid) {
-		artistService.createNewArtist(artist, sid);
-		return "redirect:/single/" + id; 
-		
+	@PostMapping("/newArtist")
+	public String createArtist(@ModelAttribute("artist") Artist artist,@RequestParam("fileImage") MultipartFile multiPartFile) throws IOException {
+		artistService.createNewArtist(artist, multiPartFile);
+		return "redirect:/artists/"; 
 	}
 	
 	@PostMapping("/updateArtistImage/{id}")

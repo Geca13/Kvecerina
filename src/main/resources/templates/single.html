@@ -27,10 +27,9 @@
 
 <div class="top">
  <img id="image" class="image" th:src="${show.imageUrl}" alt='sander image'/>  
- 
 </div>
 
-<form sec:authorize="isAuthenticated()" th:action="@{/updateImage/{id}(id=${show.id})}" enctype="multipart/form-data" method="post"  >
+     <form sec:authorize="isAuthenticated()" th:action="@{/updateImage/{id}(id=${show.id})}" enctype="multipart/form-data" method="post"  >
           <input type="file" name="fileImage" id="fileImage"  required="required"/>
                   <button>change</button>
           </form>
@@ -39,7 +38,7 @@
               <audio id="audio" controls >
                <source th:src="${show.url}" >
               </audio>
-</div>   
+ </div>   
 
     <div class="small-container container-audio">
     <table>
@@ -47,19 +46,14 @@
       <th>Artist</th>
       <th>Song</th>
       <th class="hide">Year Released</th>
-      
      </tr>
      <tr th:each="song : ${show.songs}" class="cart">
       <td >
         <div class="cart-info " th:each="artist : ${song.artists}" >
           <img th:src="${artist.imageUrl}">
-          <form sec:authorize="isAuthenticated()" class="hide" th:action="@{/updateArtistImage/{id}/{aid}(id=${show.id},aid=${artist.id})}" enctype="multipart/form-data" method="post"  >
-          <input type="file" name="fileImage" id="fileImage"  required="required"/>
-                  <button>change</button>
-          </form>
            <div class="hide">
             <p th:text="${artist.fullName}"></p>
-            </div>
+           </div>
         </div>
         <form sec:authorize="isAuthenticated()" th:action="@{/newArtist/{id}/{sid}(id=${show.id},sid=${song.id})}" th:object="${artist}" method="post">
       <input th:field="*{fullName}" type="text" maxlength="100" required="required"/>

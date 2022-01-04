@@ -16,19 +16,18 @@ loginPopup.classList.remove('active');
 }
 
 
-let songPopup = document.getElementById('song-popup'); 
-let songOpenBtn = document.getElementById('song-open-popup'); 
+let newArtistPopup = document.getElementById('new-artist-popup'); 
+let newArtistBtn = document.getElementById('new-artist'); 
 
-if(songOpenBtn){
-songOpenBtn.addEventListener('click',function(){
-songPopup.classList.add('active');
+if(newArtistBtn){
+newArtistBtn.addEventListener('click',function(){
+newArtistPopup.classList.add('active');
  })
 }
 
-let songCloseBtn = document.getElementById('close-btn1');
-if(songCloseBtn){
-songCloseBtn.addEventListener('click',function(){
-let artistPopup = document.getElementById('song-popup'); 
-songPopup.classList.remove('active');
+let closeNewArtistBtn = document.getElementById('close-btn1');
+if(closeNewArtistBtn){
+closeNewArtistBtn.addEventListener('click',function(){ 
+newArtistPopup.classList.remove('active');
  })
 }

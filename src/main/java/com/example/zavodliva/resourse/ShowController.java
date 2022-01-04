@@ -48,7 +48,7 @@ public class ShowController {
 		model.addAttribute("artist", new Artist());
 		model.addAttribute("song", new Song());
 		model.addAttribute("show", showService.findById(id));
-		model.addAttribute("artists", artistService.artists());
+		
 		return "single";
 	}
 	
