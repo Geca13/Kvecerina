@@ -5,12 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Квечерина</title>
-   <link rel="stylesheet" th:href="@{/css/audio.css}">
+  
    <link href='https://fonts.googleapis.com/css?family=Allerta' rel='stylesheet'>
    <link rel="stylesheet" th:href="@{/css/navbar.css}">
    <link rel="stylesheet" th:href="@{/css/table.css}">
    <link rel="stylesheet" th:href="@{/css/popup.css}">
-     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+   <link rel="stylesheet" th:href="@{/css/index.css}">
+   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
    
    
    
@@ -23,7 +24,31 @@
 
 <div th:replace="fragments/navbar :: navbar"></div>
 
-<h1 th:text="${show.filename}"></h1>
+<section class="section-a">
+    
+      <div class="container">
+      
+        <div>
+          <audio class="audio"  id="audio" controls >
+               <source th:src="${show.url}" >
+              </audio>
+          
+        </div>
+        <img class="main-image" th:src="${show.imageUrl}" alt="" />
+      </div>
+    </section>
+
+<section id="about" class="section-b">
+      <div class="overlay">
+        <div class="section-b-inner py-5">
+          <h3 class="text-2"></h3>
+          <h2 class="text-5 mt-1">Најнова емисија</h2>
+          <audio class="audio"  id="audio" controls >
+               <source th:src="${show.url}" >
+              </audio>
+        </div>
+      </div>
+    </section>
 
 <div class="top">
  <img id="image" class="image" th:src="${show.imageUrl}" alt='sander image'/>  

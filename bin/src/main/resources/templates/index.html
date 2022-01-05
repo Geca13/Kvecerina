@@ -4,8 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kvecerina</title>
+  <title>Квечерина</title>
   <link rel="stylesheet" th:href="@{/css/navbar.css}">
+  <link rel="stylesheet" th:href="@{/css/index.css}">
+   <link rel="stylesheet" th:href="@{/css/popup.css}">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      
    
   <style>
@@ -14,17 +18,62 @@
 </head>
 
 <body>
-  
+   
   <div th:replace="fragments/navbar :: navbar"></div>
-  
-  <a th:href="@{/new}" class='btn-primary room-link'>new </a>
-  <a th:href="@{/all}" class='btn-primary room-link'>all </a>
-  
- 
 
 
-  
+    <!-- Showcase -->
+    <section class="section-a">
+    <h1>Заводлива Квечерина</h1>
+      <div class="container">
+      
+        <div>
+          <h1>На Радио 2</h1>
+          <h3>
+            Премиера секоја среда во 19:00 со Рашела
+          </h3>
+          
+        </div>
+        <img class="main-image" th:src="${show.imageUrl}" alt="" />
+      </div>
+    </section>
+
+    <!-- Large Text -->
+    <section id="about" class="section-b">
+      <div class="overlay">
+        <div class="section-b-inner py-5">
+          <h3 class="text-2"></h3>
+          <h2 class="text-5 mt-1">Најнова емисија</h2>
+          <audio  id="audio" controls >
+               <source th:src="${show.url}" >
+              </audio>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section-c">
+      <div class="gallery">
+        <img th:src="@{img/duo.jpg}" alt=""/>
+        
+        <div class="about">
+          <h3>Уредник и водител</h3>
+          <h1>Рашела Гинова-Карафилоски</h1>
+          <hr>
+           <h3>Тон и монтажа</h3>
+          <h1>Виолета Василевска</h1>
+          
+        </div>
+      </div>
+    </section>
+    
+    
+
+    <!-- Footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
+<script type="text/javascript" th:src="@{/js/popup.js}"></script>
 </body>
 
 </html>

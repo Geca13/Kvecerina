@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rafmak</title>
+  <title>Квечерина</title>
   <link rel="stylesheet" th:href="@{/css/grid.css}">
   <link rel="stylesheet" th:href="@{/css/navbar.css}">
+  <link rel="stylesheet" th:href="@{/css/popup.css}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  
      
    
   <style>
@@ -41,6 +44,9 @@
         </section>
 
 </div>
+
+
+<div th:replace="fragments/footer :: footer"></div>
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
 

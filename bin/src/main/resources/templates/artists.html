@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Квечерина</title>
+  <link rel="stylesheet" th:href="@{/css/artists.css}">
+  <link rel="stylesheet" th:href="@{/css/navbar.css}">
+  <link rel="stylesheet" th:href="@{/css/popup.css}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  
+  <style>
+ 
+  </style>
+</head>
+
+<body>
+
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<section>
+  <!--for demo wrap-->
+  <h1>Изведувачи</h1>
+  <div class="row">
+  <div class="col">
+  <form th:action="@{/artists}">
+  
+  <input class="input" type="text" name="search" id="search" size="50" placeholder="Име"  required />
+  <input class="input-btn" type="submit" value="Барај" />
+  </form>
+  
+  <form>
+   <button class="all" formaction="/artists">Сите</button>
+  </form>
+  </div>
+  
+  <div class="col">
+  
+  <button id="new-artist">Нов Изведувач</button>
+  </div>
+  </div>
+  
+  
+  
+  
+  <div class="tbl-content">
+    <table >
+      <tbody>
+        <tr th:each="artist : ${artists}">
+          
+          <td th:text="${artist.fullName}"> </td>
+          
+          <td>
+             <form th:action="@{/updateArtistName/{id}(id=${artist.id})}" method="post">
+               <div  class="form-group">
+                 <input name="fullName" maxlength="100" type="text" required="required"/>
+                 <label for="input"  class="control-label">Ново Име</label><i class="bar"></i>
+               </div>
+         
+               <div class="button-container">
+                 <button type="submit" class="button"><span>Промени</span></button>
+               </div>
+             </form>
+          </td>
+          
+          <td><img class="img" th:src="${artist.imageUrl}" alt='artist image'/>
+          <form sec:authorize="isAuthenticated()" class="hide" th:action="@{/updateArtistImage/{id}(id=${artist.id})}" enctype="multipart/form-data" method="post"  >
+          <input type="file" name="fileImage" required="required"/>
+                  <button>Промени</button>
+          </form> </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</section>
+  
+  <div id="new-artist-popup" class="artist-popup">
+   <div class="overlay"> </div>
+   <div class="content">
+   <div id="close-btn1" class="close-btn1">&times</div>
+    <div class="container">
+        <form  th:action="@{/newArtist}" th:object="${newArtist}" enctype="multipart/form-data" method="post">
+          
+          <div  class="form-group">
+           <input th:field="*{fullName}" maxlength="100" type="text" required="required"/>
+           <label for="input"  class="control-label">Име</label><i class="bar"></i>
+          </div>
+    
+         <div class="form-group">
+           <input type="file" name="fileImage"   required="required"/>
+           <label for="input" class="control-label">Слика</label><i class="bar"></i>
+         </div>
+         
+            	
+          <div class="button-container">
+           <button type="submit" class="button"><span>Влези</span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+   </div>
+
+
+ 
+
+<div th:replace="fragments/footer :: footer"></div>
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
+<script type="text/javascript" th:src="@{/js/popup.js}"></script>
+</body>
+
+</html>

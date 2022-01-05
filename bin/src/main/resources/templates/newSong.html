@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Квечерина</title>
+  <link rel="stylesheet" th:href="@{/css/forms.css}">
+  <link rel="stylesheet" th:href="@{/css/navbar.css}">
+   <link rel="stylesheet" th:href="@{/css/popup.css}">
+     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+   
+  <style>
+ 
+    </style>
+</head>
+
+<body>
+
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container">
+
+<form th:action="@{/newSong/{id}(id=${show.id})}" th:object="${song}" enctype="multipart/form-data" method="post">
+  <h1>Песна</h1>
+    <div th:if="${error != null}" class="error-msg">
+       <i class="fa fa-times-circle"></i>
+        [[${error}]]
+       </div>
+    <div class="form-group">
+      <input th:field="*{name}" maxlength="100" type="text" required="required"/>
+      <label for="input"  class="control-label">Наслов</label><i class="bar"></i>
+    </div>
+    
+    <div class="form-group">
+      <input th:field="*{releaseYear}" maxlength="4" required="required"/>
+      <label for="input" class="control-label">Година</label><i class="bar"></i>
+    </div>
+   
+ 
+    <h3>Изведувач(и)</h3>
+    
+    <ul>
+  <li th:each="artist : ${artists}">
+    <input type="checkbox" th:field="*{artists}" th:value="${artist.id}" />
+    <label  th:text="${artist.fullName}"></label>
+  </li>
+</ul>
+  
+     <div class="button-container">
+    <button type="submit" class="button"><span>Сними</span></button>
+  </div>
+ 
+</form>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+<script type="text/javascript" th:src="@{/js/navbar.js}"></script>
+</body>
+
+</html>
