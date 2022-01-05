@@ -45,7 +45,7 @@ section{
 }
 
 .input {
-	width: 50%;
+	width: 30%;
 	margin: 10px 0px;
 	height: 20px;
 	background: none;
@@ -64,27 +64,9 @@ section{
   justify-content: space-between;
 }
 
-
-
-.link-btn {
-	display: block;
-    text-decoration:none;
-    height: 10px;
-    background: #4E9CAF;
-    
-    text-align: center;
-    
-    color: white;
-    
-    line-height: 25px;
-}
-
-.col{
-	width: 50%;
-}
-
-.row{
-	
+.row form  {
+   display: inline;	
+   
 }
 
 
