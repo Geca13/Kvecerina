@@ -8,95 +8,81 @@
   
    <link href='https://fonts.googleapis.com/css?family=Allerta' rel='stylesheet'>
    <link rel="stylesheet" th:href="@{/css/navbar.css}">
-   <link rel="stylesheet" th:href="@{/css/table.css}">
    <link rel="stylesheet" th:href="@{/css/popup.css}">
-   <link rel="stylesheet" th:href="@{/css/index.css}">
+   <link rel="stylesheet" th:href="@{/css/single.css}">
+   
    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-   
-   
-   
-  <style>
- 
-    </style>
+   <style>
+   </style>
 </head>
 
 <body>
 
-<div th:replace="fragments/navbar :: navbar"></div>
+   <div th:replace="fragments/navbar :: navbar"></div>
 
-<section class="section-a">
-    
-      <div class="container">
-      
-        <div>
-          <audio class="audio"  id="audio" controls >
-               <source th:src="${show.url}" >
-              </audio>
-          
-        </div>
-        <img class="main-image" th:src="${show.imageUrl}" alt="" />
-      </div>
-    </section>
+   <section>
+   <div class="single">
+     <h2 class="title" th:text="${show.title}"></h2>
+     <img class="image"  th:src="${show.imageUrl}" alt='sander image'/>  
+      <form sec:authorize="isAuthenticated()" th:action="@{/updateImage/{id}(id=${show.id})}" enctype="multipart/form-data" method="post"  >
+       <input type="file" name="fileImage" id="fileImage"  required="required"/>
+       <button>change</button>
+      </form>
 
-<section id="about" class="section-b">
-      <div class="overlay">
-        <div class="section-b-inner py-5">
-          <h3 class="text-2"></h3>
-          <h2 class="text-5 mt-1">Најнова емисија</h2>
-          <audio class="audio"  id="audio" controls >
-               <source th:src="${show.url}" >
-              </audio>
-        </div>
-      </div>
-    </section>
-
-<div class="top">
- <img id="image" class="image" th:src="${show.imageUrl}" alt='sander image'/>  
-</div>
-
-     <form sec:authorize="isAuthenticated()" th:action="@{/updateImage/{id}(id=${show.id})}" enctype="multipart/form-data" method="post"  >
-          <input type="file" name="fileImage" id="fileImage"  required="required"/>
-                  <button>change</button>
-          </form>
-
- <div class="container-audio">
-              <audio id="audio" controls >
-               <source th:src="${show.url}" >
-              </audio>
- </div>   
-
-    <div class="small-container container-audio">
-    <table>
-     <tr>
-      <th>Artist</th>
-      <th>Song</th>
-      <th class="hide">Year Released</th>
-     </tr>
+     <div class="container-audio">
+         <audio id="audio" controls >
+          <source th:src="${show.audioUrl}" >
+         </audio>
+     </div>   
+    </div>
+   <div class="tbl-content">
+   
+    <div class="new-song-link">
+    <h2 th:if="${show.songs.size eq 0}" >Песните сеуште не се поставени.</h2>
+    <h2 th:unless="${show.songs.size eq 0}" >Изведувачи и Песни</h2>
+    </div>
+    <table >
+      <tbody>
+     
      <tr th:each="song : ${show.songs}" class="cart">
       <td >
-        <div class="cart-info " th:each="artist : ${song.artists}" >
-          <img th:src="${artist.imageUrl}">
-           <div class="hide">
-            <p th:text="${artist.fullName}"></p>
-           </div>
+        <div class="artist-info " th:each="artist : ${song.artists}" >
+          <img class="td-img" th:src="${artist.imageUrl}">
+          <p class="hide artist-name" th:text="${artist.fullName}"></p>
         </div>
-        <form sec:authorize="isAuthenticated()" th:action="@{/newArtist/{id}/{sid}(id=${show.id},sid=${song.id})}" th:object="${artist}" method="post">
-      <input th:field="*{fullName}" type="text" maxlength="100" required="required"/>
-      <label for="input" class="control-label">A</label><i class="bar"></i>
-      <button id="artist-btn" type="submit" class="">Submit</button>
-    </form>
+        <form sec:authorize="isAuthenticated()" th:action="@{/addArtistToSong/{id}/{sid}(id=${show.id},sid=${song.id})}" th:object="${artist}" method="post">
+         <select  th:name="aid">
+             <option th:each="artist : ${artists}"
+              th:value="${artist.id}"
+              th:text="${artist.fullName}"/>
+            </select>
+          <button id="artist-btn" type="submit" class="">Додај</button>
+        </form>
     
       </td>
-      <td th:text="${song.name}"></td>
-      <td class="hide" th:text="${song.releaseYear}" ></td>
+      <td class="song-title" th:text="${song.name}">
+        <form sec:authorize="isAuthenticated()" th:action="@{/updateSongTitle/{id}/{sid}(id=${show.id},sid=${song.id})}" method="post">
+         <input type="text" placeholder="update title" th:name="title" />
+          <button id="artist-btn" type="submit" class="">Смени</button>
+        </form>
       
-     </tr>
+      </td>
+      <td class="hide" th:text="${song.releaseYear}" >
+        <form sec:authorize="isAuthenticated()" th:action="@{/updateSongYear/{id}/{sid}(id=${show.id},sid=${song.id})}" method="post">
+         <input type="text" placeholder="update title" th:name="year" />
+          <button id="artist-btn" type="submit" class="">Смени</button>
+        </form>
+      </td>
+      </tr>
+    </tbody>
     </table>
+    <div sec:authorize="isAuthenticated()" class="new-song-link">
+    <a  th:href="@{/newSong/{id}(id=${show.id})}">Додај Песна</a>
+    </div>
     
-    
-   </div>
+  </div>
+   </section>
    
-   <a th:href="@{/newSong/{id}(id=${show.id})}">Нова Песна</a>
    
    
    <div th:replace="fragments/footer :: footer"></div>

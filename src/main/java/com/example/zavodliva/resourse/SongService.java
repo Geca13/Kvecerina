@@ -1,6 +1,5 @@
 package com.example.zavodliva.resourse;
 
-import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,8 +25,6 @@ public class SongService {
 		return songRepository.save(song);
 	}
 	
-	
-
 	public void addNewSong(Song song, Integer id) {
 		Show show = showService.findById(id);
 		Song newSong = new Song();
@@ -38,6 +35,18 @@ public class SongService {
 		show.getSongs().add(newSong);
 		showService.updateShow(show);
 		
+	}
+
+	public void updateSongTitle(String title, Integer id) {
+		Song song = findSongById(id);
+		song.setName(title);
+		updateSong(song);
+	}
+
+	public void updateSongYear(String year, Integer id) {
+		Song song = findSongById(id);
+		song.setReleaseYear(year);
+		updateSong(song);
 	}
 
 }

@@ -45,6 +45,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers(
 				"/all**",
+				"/artists**",
 				"/single/**",
 				"/register**",
 				"/login**",

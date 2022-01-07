@@ -100,4 +100,14 @@
 	transform:translate(-50%, -50%) scale(1);
 }
 
+@media (max-width: 700px) {
+	 .artist-popup .content {
+	width: 80%;
+	}
+	
+	.login-popup .content {
+	width: 80%;
+	}
+}
+
 

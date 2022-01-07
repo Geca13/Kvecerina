@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import com.example.zavodliva.entity.Artist;
+import com.example.zavodliva.entity.Song;
 import com.example.zavodliva.repository.ArtistRepository;
 
 @Service
@@ -21,14 +22,14 @@ public class ArtistService {
 	
 	@Autowired
 	ImageService imageService;
+	
+	
 
 	public void createNewArtist(Artist newArtist, MultipartFile multiPartFile) throws IOException {
-		
 		Artist artist = new Artist();
 		artist.setFullName(newArtist.getFullName());
 		uploadImageAndSetPath(multiPartFile, artist);
 		artistRepository.save(artist);
-		
 	}
 
 	private void uploadImageAndSetPath(MultipartFile multiPartFile, Artist artist) throws IOException {
@@ -65,6 +66,12 @@ public class ArtistService {
 	private Artist findArtistById(Integer id) {
 		Artist artist = artistRepository.findById(id).get();
 		return artist;
+	}
+
+	public void addArtistToSong(Integer sid, Integer aid) {
+		Song song = songService.findSongById(sid);
+		song.getArtists().add(findArtistById(aid));
+		songService.updateSong(song);
 	}
 	
 	

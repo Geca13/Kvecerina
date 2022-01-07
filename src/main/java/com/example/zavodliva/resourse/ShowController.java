@@ -5,6 +5,7 @@ import java.io.IOException;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.example.zavodliva.entity.Artist;
 import com.example.zavodliva.entity.Show;
 import com.example.zavodliva.entity.Song;
 import com.example.zavodliva.repository.ShowRepository;
@@ -45,11 +44,18 @@ public class ShowController {
 	
 	@GetMapping("/single/{id}")
 	public String getSingle(Model model ,@PathVariable("id")Integer id) {
-		model.addAttribute("artist", new Artist());
+		model.addAttribute("artists", artistService.artists());
 		model.addAttribute("song", new Song());
 		model.addAttribute("show", showService.findById(id));
 		
 		return "single";
+	}
+	
+	@PostMapping("/addArtistToSong/{id}/{sid}")
+	public String addArtistToShow(@PathVariable("id")Integer id,@PathVariable("sid")Integer sid,@Param("aid")Integer aid) {
+		artistService.addArtistToSong(sid, aid);
+		return "redirect:/single/" + id;
+		
 	}
 	
 	@GetMapping("/new")

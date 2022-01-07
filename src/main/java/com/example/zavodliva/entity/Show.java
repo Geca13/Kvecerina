@@ -1,5 +1,6 @@
 package com.example.zavodliva.entity;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -24,13 +25,13 @@ public class Show {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
-	private String name;
+	private String title;
 	
 	private String imageUrl;
 	
-	private String filename;
+	private String audioUrl;
 	
-	private String url;
+	private LocalDate published;
 	
 	@ManyToMany
 	private List<Song> songs;

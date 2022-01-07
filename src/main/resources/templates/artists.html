@@ -19,6 +19,7 @@
 
 <div th:replace="fragments/navbar :: navbar"></div>
 
+<div class="full">
 <section>
 
   <!--for demo wrap-->
@@ -35,44 +36,38 @@
    <button class="all" formaction="/artists">Сите</button>
   </form>
   
-  <button id="new-artist">Нов Изведувач</button>
-  
+  <button sec:authorize="isAuthenticated()" id="new-artist">Нов Изведувач</button>
   </div>
-  
-  
-  
-  
   <div class="tbl-content">
     <table >
       <tbody>
         <tr th:each="artist : ${artists}">
-          
-          <td th:text="${artist.fullName}"> </td>
-          
-          <td>
-             <form th:action="@{/updateArtistName/{id}(id=${artist.id})}" method="post">
-               <div  class="form-group">
-                 <input name="fullName" maxlength="100" type="text" required="required"/>
-                 <label for="input"  class="control-label">Ново Име</label><i class="bar"></i>
-               </div>
-         
-               <div class="button-container">
-                 <button type="submit" class="button"><span>Промени</span></button>
-               </div>
-             </form>
+          <td class="artist-fullname" th:text="${artist.fullName}"></td>
+          <td sec:authorize="isAuthenticated()">
+            <form th:action="@{/updateArtistName/{id}(id=${artist.id})}" method="post">
+             <div  class="form-group">
+               <input name="fullName" maxlength="100" type="text" required="required"/>
+               <label for="input"  class="control-label">Ново Име</label><i class="bar"></i>
+             </div>
+             <div class="button-container">
+               <button type="submit" class="button"><span>Промени</span></button>
+             </div>
+            </form>
           </td>
-          
-          <td><img class="img" th:src="${artist.imageUrl}" alt='artist image'/>
-          <form sec:authorize="isAuthenticated()" class="hide" th:action="@{/updateArtistImage/{id}(id=${artist.id})}" enctype="multipart/form-data" method="post"  >
-          <input type="file" name="fileImage" required="required"/>
-                  <button>Промени</button>
-          </form> </td>
+          <td>
+           <img class="img" th:src="${artist.imageUrl}" alt='artist image'/>
+            <form sec:authorize="isAuthenticated()" class="hide" th:action="@{/updateArtistImage/{id}(id=${artist.id})}" enctype="multipart/form-data" method="post"  >
+             <input type="file" name="fileImage" required="required"/>
+             <button>Промени</button>
+            </form>
+           </td>
         </tr>
         
       </tbody>
     </table>
   </div>
 </section>
+</div>
   
   <div id="new-artist-popup" class="artist-popup">
    <div class="overlay"> </div>

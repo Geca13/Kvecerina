@@ -1,6 +1,7 @@
 package com.example.zavodliva.resourse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,11 +34,22 @@ public class SongController {
 	
 	@PostMapping("/newSong/{id}")
 	public String createSong(@ModelAttribute("song") Song song,@PathVariable("id")Integer id ) {
-		
 		songService.addNewSong(song ,id);
-		
 		return "redirect:/single/" + id; 
-		
 	}
+	
+	@PostMapping("/updateSongTitle/{id}/{sid}")
+	public String upateSongTitle(@Param("title")String title,@PathVariable("id")Integer id,@PathVariable("sid")Integer sid ) {
+		songService.updateSongTitle(title ,sid);
+		return "redirect:/single/" + id; 
+	}
+	
+	@PostMapping("/updateSongYear/{id}/{sid}")
+	public String upateSongYear(@Param("year")String year,@PathVariable("id")Integer id ,@PathVariable("sid")Integer sid ) {
+		songService.updateSongYear(year ,sid);
+		return "redirect:/single/" + id; 
+	}
+	
+	
 
 }

@@ -2,6 +2,9 @@
   --primary-color: #333;
   --secondary-color: #444;
   --overlay-color: rgba(0, 0, 0, 0.7);
+  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+  --mainTransition: all 0.3s linear;
 }
 
 * {
@@ -27,14 +30,41 @@
 }
 
 body {
-  
-  line-height: 1.6;
+ line-height: 1.6;
   color: #333;
   font-size: 1.1rem;
- 
 }
 
 
+.shows-center {
+  width: 80vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 30px;
+  padding-bottom: 225px;
+}
+
+.showslist {
+  padding: 5rem 0;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.show {
+  box-shadow: var(--lightShadow);
+  transition: var(--mainTransition);
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+.show:hover {
+  box-shadow: var(--darkShadow);
+}
 .about {
   text-align: center;
   vertical-align: middle;
@@ -53,7 +83,13 @@ body {
   padding: 0 2rem;
 }
 
-
+.title {
+	text-align: center;
+	padding: 50px;
+	font-family: 'AlexaScript';
+	color: #eb6ec5;
+	font-size: 65px;
+}
 
 .section-a {
   margin: 2rem 0;
@@ -106,15 +142,13 @@ body {
 }
 
 .section-b-inner h2 {
-  font-size: 3.5rem;
-  padding: 100px;
-  margin-top: 1rem;
+  font-family: 'AlexaScript';
+  font-weight: 300;
+  font-size: 3rem;
+  padding: 50px;
+  margin-top: 0.2rem;
 }
 
-.section-b-inner p {
-  margin-top: 1rem;
-  font-size: 1.5rem;
-}
 
 .section-c .gallery {
   display: grid;
@@ -158,6 +192,14 @@ body {
   background-color: var(--overlay-color);
 }
 
+.overlay h3{
+   color: white;
+   padding-top: 50px;
+   text-align: center;
+   font-size: 2rem;
+  }
+
+
 @media (max-width: 700px) {
   .section-a .container {
     grid-template-columns: 1fr;
@@ -171,7 +213,13 @@ body {
   .section-a .container div:nth-child(2) {
     order: -1;
   }
-
+  
+  .section-b-inner h2 {
+  font-size: 3rem;
+  padding: 50px;
+  font-family: 'AlexaScript';
+  font-weight: 300;
+}
   .section-a img {
     width: 80%;
     margin: auto;
@@ -187,10 +235,13 @@ body {
   .section-c .gallery {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    
   }
   
-
+  .overlay h3{
+   color: white;
+   padding-top: 80px;
+   text-align: center;
+  }
 }
 
 .main-image {

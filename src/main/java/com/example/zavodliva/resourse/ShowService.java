@@ -33,10 +33,9 @@ public class ShowService {
 
 	public Show addNewShow(Show show, MultipartFile multiPartFile) throws IOException {
 		Show newShow = new Show();
-		newShow.setName(show.getName());
+		newShow.setTitle(show.getTitle());
 		String fileName = StringUtils.cleanPath(multiPartFile.getOriginalFilename());
-		newShow.setFilename(fileName);
-		newShow.setUrl("/audios/" + fileName);
+		newShow.setAudioUrl("/audios/" + fileName);
 		newShow.setImageUrl("/img/galeb.jpg");
 		newShow.setSongs(new ArrayList<>());
 		audioService.uploadAudio(multiPartFile);

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Квечерина</title>
-  <link rel="stylesheet" th:href="@{/css/grid.css}">
+  <link rel="stylesheet" th:href="@{/css/index.css}">
   <link rel="stylesheet" th:href="@{/css/navbar.css}">
   <link rel="stylesheet" th:href="@{/css/popup.css}">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -23,22 +23,16 @@
 
 
  <div class="container">
-<h1 class="middle">shows</h1>
+<h1 class="title">Емисии</h1>
 
  <section class='showsList'>
             <div class='shows-center'>
-             <article class='room' th:each="show : ${shows}" >
-            
-              <div class="price-top">
-                 <img class="img" th:src="${show.imageUrl}" alt='sander image'/> 
-
-              </div>
-              <a th:href="@{/single/{id}(id=${show.id})}" th:text="${show.name}" class='btn-primary room-link'>
-                  
-                  </a>
-            
-            
-        </article>
+             <article class='show' th:each="show : ${shows}" >
+             <a th:href="@{/single/{id}(id=${show.id})}" class='btn-primary room-link'>
+               <img class="img" th:src="${show.imageUrl}" alt='sander image'/> </a>
+               <h4 th:text="${show.title}"></h4>
+                
+               </article>
 
             </div>
         </section>
