@@ -50,7 +50,7 @@
           <img class="td-img" th:src="${artist.imageUrl}">
           <p class="hide artist-name" th:text="${artist.fullName}"></p>
         </div>
-        <form sec:authorize="isAuthenticated()" th:action="@{/addArtistToSong/{id}/{sid}(id=${show.id},sid=${song.id})}" th:object="${artist}" method="post">
+        <form class="hide" sec:authorize="isAuthenticated()" th:action="@{/addArtistToSong/{id}/{sid}(id=${show.id},sid=${song.id})}" th:object="${artist}" method="post">
          <select  th:name="aid">
              <option th:each="artist : ${artists}"
               th:value="${artist.id}"
@@ -60,14 +60,17 @@
         </form>
     
       </td>
-      <td class="song-title" th:text="${song.name}">
+      <td class="song-title" th:text="${song.name}"></td>
+      
+      <td class="hide"  >
         <form sec:authorize="isAuthenticated()" th:action="@{/updateSongTitle/{id}/{sid}(id=${show.id},sid=${song.id})}" method="post">
          <input type="text" placeholder="update title" th:name="title" />
           <button id="artist-btn" type="submit" class="">Смени</button>
         </form>
       
       </td>
-      <td class="hide" th:text="${song.releaseYear}" >
+      <td class="hide" th:text="${song.releaseYear}" ></td>
+      <td class="hide"  >
         <form sec:authorize="isAuthenticated()" th:action="@{/updateSongYear/{id}/{sid}(id=${show.id},sid=${song.id})}" method="post">
          <input type="text" placeholder="update title" th:name="year" />
           <button id="artist-btn" type="submit" class="">Смени</button>
@@ -76,7 +79,7 @@
       </tr>
     </tbody>
     </table>
-    <div sec:authorize="isAuthenticated()" class="new-song-link">
+    <div  sec:authorize="isAuthenticated()" class="new-song-link">
     <a  th:href="@{/newSong/{id}(id=${show.id})}">Додај Песна</a>
     </div>
     
