@@ -64,7 +64,6 @@ section{
    display: inline;	
 }
 
-
 @media (max-width: 700px) {
 td img{
 	height: 90px;

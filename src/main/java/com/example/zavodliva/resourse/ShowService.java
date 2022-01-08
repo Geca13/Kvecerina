@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.zavodliva.entity.Show;
 import com.example.zavodliva.repository.ShowRepository;
+import com.example.zavodliva.repository.SongRepository;
 
 @Service
 public class ShowService {
@@ -44,21 +45,17 @@ public class ShowService {
 	
 	public Show updateShow(Show show) {
 		return showRepository.save(show);
-		
 	}
 
 	public Show lastShow() {
-		
 		Show show =showRepository.findTopByOrderByIdDesc();
 		return show;
 	}
 
-	
-	
-	
-	
-	
-	
-	
+	public void deleteShow(Integer id) {
+		Show show = findById(id);
+		
+	}
 
+	
 }

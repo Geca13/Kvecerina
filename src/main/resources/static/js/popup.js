@@ -31,3 +31,4 @@ closeNewArtistBtn.addEventListener('click',function(){
 newArtistPopup.classList.remove('active');
  })
 }
+

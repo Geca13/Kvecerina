@@ -74,6 +74,12 @@ public class ArtistService {
 		songService.updateSong(song);
 	}
 	
+	public void removeArtistFromSong(Integer sid, Integer aid) {
+		Song song = songService.findSongById(sid);
+		Artist artist = findArtistById(aid);
+		song.getArtists().remove(artist);
+		songService.updateSong(song);
+	}
 	
 
 }

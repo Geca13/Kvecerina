@@ -45,37 +45,47 @@
       <tbody>
      
      <tr th:each="song : ${show.songs}" class="cart">
-      <td >
+      <td>
         <div class="artist-info " th:each="artist : ${song.artists}" >
           <img class="td-img" th:src="${artist.imageUrl}">
+          <form class="hide" sec:authorize="isAuthenticated()" th:action="@{/removeArtistFromSong/{id}/{sid}/{aid}(id=${show.id},sid=${song.id},aid=${artist.id})}" method="post">
+             <button>Отстрани</button>
+          </form>
           <p class="hide artist-name" th:text="${artist.fullName}"></p>
         </div>
+        <form class="hide" sec:authorize="isAuthenticated()" th:action="@{/deleteSong/{id}/{sid}(id=${show.id},sid=${song.id})}" method="post">
+             <button>Избриши песна</button>
+          </form>
         <form class="hide" sec:authorize="isAuthenticated()" th:action="@{/addArtistToSong/{id}/{sid}(id=${show.id},sid=${song.id})}" th:object="${artist}" method="post">
          <select  th:name="aid">
              <option th:each="artist : ${artists}"
               th:value="${artist.id}"
               th:text="${artist.fullName}"/>
             </select>
-          <button id="artist-btn" type="submit" class="">Додај</button>
+          <button class="artist-btn" type="submit" >Додај</button>
         </form>
     
       </td>
-      <td class="song-title" th:text="${song.name}"></td>
-      
-      <td class="hide"  >
-        <form sec:authorize="isAuthenticated()" th:action="@{/updateSongTitle/{id}/{sid}(id=${show.id},sid=${song.id})}" method="post">
+      <td class="song-title" >
+        <h4 th:text="${song.name}"></h4>
+         <form class="form-title" sec:authorize="isAuthenticated()" th:action="@{/updateSongTitle/{id}/{sid}(id=${show.id},sid=${song.id})}" method="post">
          <input type="text" placeholder="update title" th:name="title" />
-          <button id="artist-btn" type="submit" class="">Смени</button>
+           <div class="button-container">
+           <button type="submit" class="button"><span>Влези</span></button>
+          </div>
         </form>
+      </td>
       
-      </td>
-      <td class="hide" th:text="${song.releaseYear}" ></td>
-      <td class="hide"  >
-        <form sec:authorize="isAuthenticated()" th:action="@{/updateSongYear/{id}/{sid}(id=${show.id},sid=${song.id})}" method="post">
+      <td class="hide" >
+        <h4 th:text="${song.releaseYear}"></h4>
+        <form class="year" sec:authorize="isAuthenticated()" th:action="@{/updateSongYear/{id}/{sid}(id=${show.id},sid=${song.id})}" method="post">
          <input type="text" placeholder="update title" th:name="year" />
-          <button id="artist-btn" type="submit" class="">Смени</button>
+          <button class="artist-btn" type="submit" >Смени</button>
         </form>
-      </td>
+       </td>
+      
+      
+      
       </tr>
     </tbody>
     </table>

@@ -50,6 +50,18 @@ public class SongController {
 		return "redirect:/single/" + id; 
 	}
 	
+	@PostMapping("/removeArtistFromSong/{id}/{sid}/{aid}")
+	public String removeArtistFromSong(@PathVariable("id")Integer id ,@PathVariable("sid")Integer sid ,@PathVariable("aid")Integer aid) {
+		artistService.removeArtistFromSong(sid,aid);
+		return "redirect:/single/" + id;
+	}
+	
+	@PostMapping("/deleteSong/{id}/{sid}")
+	public String deleteSong(@PathVariable("id")Integer id ,@PathVariable("sid")Integer sid) {
+		songService.deleteSong(id,sid);
+		return "redirect:/single/" + id;
+	}
+	
 	
 
 }

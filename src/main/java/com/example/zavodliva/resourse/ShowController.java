@@ -37,7 +37,6 @@ public class ShowController {
 	
 	@GetMapping("/all")
 	public String getAll(Model model) {
-		
 		model.addAttribute("shows", showService.findAllShows());
 		return "all";
 	}
@@ -47,7 +46,6 @@ public class ShowController {
 		model.addAttribute("artists", artistService.artists());
 		model.addAttribute("song", new Song());
 		model.addAttribute("show", showService.findById(id));
-		
 		return "single";
 	}
 	
@@ -55,19 +53,16 @@ public class ShowController {
 	public String addArtistToShow(@PathVariable("id")Integer id,@PathVariable("sid")Integer sid,@Param("aid")Integer aid) {
 		artistService.addArtistToSong(sid, aid);
 		return "redirect:/single/" + id;
-		
 	}
 	
 	@GetMapping("/new")
 	public String newShow(Model model) {
-		
 		model.addAttribute("show", new Show());
 		return "new";
 	}
 	
 	@PostMapping("/new")
 	public String create(@ModelAttribute("show") Show show,  @RequestParam("fileImage") MultipartFile multiPartFile) throws IOException {
-		
 		Show newShow = showService.addNewShow(show, multiPartFile);
 		return "redirect:/single/" + newShow.getId();
 	}
@@ -76,7 +71,12 @@ public class ShowController {
 	public String updateShowImage(@PathVariable("id")Integer id,@RequestParam("fileImage") MultipartFile multiPartFile) throws IOException {
 		imageService.updateShowImage(id, multiPartFile);
 		return "redirect:/single/" + id;
-		
+	}
+	
+	@PostMapping("/deleteShow/{id}")
+	public String deleteShow(@PathVariable("id")Integer id) {
+		showService.deleteShow(id);
+		return "redirect:/all";
 	}
 	
 	

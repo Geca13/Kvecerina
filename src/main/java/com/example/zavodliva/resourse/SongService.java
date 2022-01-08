@@ -3,7 +3,6 @@ package com.example.zavodliva.resourse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.zavodliva.entity.Show;
 import com.example.zavodliva.entity.Song;
 import com.example.zavodliva.repository.SongRepository;
@@ -16,6 +15,9 @@ public class SongService {
 	
 	@Autowired
 	ShowService showService;
+	
+	@Autowired
+	ArtistService artistService;
 	
 	public Song findSongById(Integer id) {
 		return songRepository.findById(id).get();
@@ -48,5 +50,16 @@ public class SongService {
 		song.setReleaseYear(year);
 		updateSong(song);
 	}
+
+	public void deleteSong(Integer id, Integer sid) {
+		Show show = showService.findById(id);
+		Song song = findSongById(sid);
+		show.getSongs().remove(song);
+		showService.updateShow(show);
+		song.setArtists(null);
+		songRepository.delete(song);
+	}
+
+	
 
 }
