@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -25,6 +26,7 @@ public class ShowService {
 	
 	@Autowired
 	ImageService imageService;
+	
 
 	public List<Show> findAllShows() {
 		List<Show> shows = showRepository.findAll();
@@ -37,15 +39,17 @@ public class ShowService {
 	}
 
 	public Show addNewShow(Show show, MultipartFile multiPartFile) throws IOException {
-		Show newShow = new Show();
-		newShow.setTitle(show.getTitle());
-		String fileName = StringUtils.cleanPath(multiPartFile.getOriginalFilename());
-		newShow.setAudioUrl("/audios/" + fileName);
-		newShow.setImageUrl("/img/artist.jpg");
-		newShow.setPublished(LocalDate.now());
-		newShow.setSongs(new ArrayList<>());
-		audioService.uploadAudio(multiPartFile);
-		return showRepository.save(newShow);
+		
+		    Show newShow = new Show();
+		    newShow.setTitle(show.getTitle());
+			String fileName = StringUtils.cleanPath(multiPartFile.getOriginalFilename());
+			newShow.setAudioUrl("/audios/" + fileName);
+			newShow.setImageUrl("/img/galeb.jpg");
+			newShow.setPublished(LocalDate.now());
+			newShow.setSongs(new ArrayList<>());
+			audioService.uploadAudio(multiPartFile);
+			return showRepository.save(newShow);
+		
 	}
 	
 	public Show updateShow(Show show) {

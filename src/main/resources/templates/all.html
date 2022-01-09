@@ -34,7 +34,7 @@
                <h4 th:text="${show.title}"></h4>
                <h5 th:text="${#temporals.format(show.published, 'dd-MM-yyyy')}"></h5>
                </div>
-               <div class="card-show-delete">
+               <div sec:authorize="isAuthenticated()" class="card-show-delete">
                <form th:action="@{deleteShow/{id}(id=${show.id})}" method="post">
                <button class="btn-trash" type="submit"><i class="bx bx-trash"></i></button>
                </form>

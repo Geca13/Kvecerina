@@ -35,7 +35,7 @@ audio {
 	color: violet;
 }
 
-i:hover{
+i:hover {
 	cursor:pointer;
 	color:red;
 }
@@ -138,10 +138,13 @@ a{
 	background-color: magenta;
 }
 
+
+
 @media (max-width: 1000px) {
 	.artist-info p {
 	margin-top: 5px;
 	padding-top: 5px;
+	
 }
 }
 

@@ -63,7 +63,7 @@ public class MainEntryController {
 		return "administration";
 	}
 	
-	@PostMapping("/register")
+	@PostMapping("/registerNewAdminForKvecherina")
 	public String completeRegistration(@ModelAttribute(value = "user")User user, Model model) {
 		
 		try {
