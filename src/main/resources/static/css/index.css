@@ -29,6 +29,10 @@
 	color: black;
 }
 
+.icon{
+	border-radius: 50%;
+}
+
 body {
  line-height: 1.6;
   color: #333;
@@ -198,6 +202,38 @@ body {
    text-align: center;
    font-size: 2rem;
   }
+  
+.card-footer {
+	height: 80px;
+	padding: 10px;
+	overflow: hidden;
+}
+
+.card-info{
+	width: 90%;
+	float: left;
+}  
+
+.card-show-delete {
+	width: 10%;	
+	float: left;
+	height: 50px;
+	vertical-align: middle;
+	padding-top: 10px;
+}
+.bx-trash {
+	font-size: 30px;
+	color: violet;
+}
+
+.card-show-delete i:hover{
+	cursor:pointer;
+	color:red;
+}
+
+.btn-trash {
+	border: none;
+}
 
 
 @media (max-width: 700px) {

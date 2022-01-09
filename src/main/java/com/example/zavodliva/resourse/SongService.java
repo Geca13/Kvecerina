@@ -1,6 +1,9 @@
 package com.example.zavodliva.resourse;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.zavodliva.entity.Show;
@@ -60,6 +63,14 @@ public class SongService {
 		songRepository.delete(song);
 	}
 
-	
+	public void deleteListOfSongs(Integer id) {
+		List<Song> songs = new ArrayList<>();
+		Show show = showService.findById(id);
+		for (Song song : show.getSongs()) {
+			songs.add(song);
+		}
+		show.setSongs(null);
+		songRepository.deleteAll(songs);
+	}
 
 }

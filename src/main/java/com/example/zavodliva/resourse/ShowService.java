@@ -1,17 +1,15 @@
 package com.example.zavodliva.resourse;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.example.zavodliva.entity.Show;
 import com.example.zavodliva.repository.ShowRepository;
-import com.example.zavodliva.repository.SongRepository;
 
 @Service
 public class ShowService {
@@ -21,6 +19,12 @@ public class ShowService {
 	
 	@Autowired
 	AudioFileService audioService;
+	
+	@Autowired
+	SongService songService;
+	
+	@Autowired
+	ImageService imageService;
 
 	public List<Show> findAllShows() {
 		List<Show> shows = showRepository.findAll();
@@ -37,7 +41,8 @@ public class ShowService {
 		newShow.setTitle(show.getTitle());
 		String fileName = StringUtils.cleanPath(multiPartFile.getOriginalFilename());
 		newShow.setAudioUrl("/audios/" + fileName);
-		newShow.setImageUrl("/img/galeb.jpg");
+		newShow.setImageUrl("/img/artist.jpg");
+		newShow.setPublished(LocalDate.now());
 		newShow.setSongs(new ArrayList<>());
 		audioService.uploadAudio(multiPartFile);
 		return showRepository.save(newShow);
@@ -54,7 +59,10 @@ public class ShowService {
 
 	public void deleteShow(Integer id) {
 		Show show = findById(id);
-		
+		songService.deleteListOfSongs(show.getId());
+		imageService.deleteImage(show);
+		audioService.deleteAudio(show);
+		showRepository.delete(show);
 	}
 
 	

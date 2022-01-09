@@ -4,14 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Квечерина</title>
-  
+  <title>Заводлива Квечерина</title>
+   <link rel="shortcut icon" type="image/ico" th:href="@{/img/favicon.ico}"/>
    <link href='https://fonts.googleapis.com/css?family=Allerta' rel='stylesheet'>
    <link rel="stylesheet" th:href="@{/css/navbar.css}">
    <link rel="stylesheet" th:href="@{/css/popup.css}">
    <link rel="stylesheet" th:href="@{/css/single.css}">
    
    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
    <style>
    </style>
 </head>
@@ -30,7 +31,7 @@
       </form>
 
      <div class="container-audio">
-         <audio id="audio" controls >
+         <audio id="audio" controls controlsList="nodownload">
           <source th:src="${show.audioUrl}" >
          </audio>
      </div>   
@@ -48,14 +49,14 @@
       <td>
         <div class="artist-info " th:each="artist : ${song.artists}" >
           <img class="td-img" th:src="${artist.imageUrl}">
-          <form class="hide" sec:authorize="isAuthenticated()" th:action="@{/removeArtistFromSong/{id}/{sid}/{aid}(id=${show.id},sid=${song.id},aid=${artist.id})}" method="post">
-             <button>Отстрани</button>
-          </form>
+          
           <p class="hide artist-name" th:text="${artist.fullName}"></p>
-        </div>
-        <form class="hide" sec:authorize="isAuthenticated()" th:action="@{/deleteSong/{id}/{sid}(id=${show.id},sid=${song.id})}" method="post">
-             <button>Избриши песна</button>
+          
+          <form class="hide artist-remove" sec:authorize="isAuthenticated()" th:action="@{/removeArtistFromSong/{id}/{sid}/{aid}(id=${show.id},sid=${song.id},aid=${artist.id})}" method="post">
+             <button class="btn-trash"><i class="bx bx-trash"></i></button>
           </form>
+        </div>
+        
         <form class="hide" sec:authorize="isAuthenticated()" th:action="@{/addArtistToSong/{id}/{sid}(id=${show.id},sid=${song.id})}" th:object="${artist}" method="post">
          <select  th:name="aid">
              <option th:each="artist : ${artists}"
@@ -69,21 +70,25 @@
       <td class="song-title" >
         <h4 th:text="${song.name}"></h4>
          <form class="form-title" sec:authorize="isAuthenticated()" th:action="@{/updateSongTitle/{id}/{sid}(id=${show.id},sid=${song.id})}" method="post">
-         <input type="text" placeholder="update title" th:name="title" />
+         <input type="text" placeholder="смени наслов" th:name="title" />
            <div class="button-container">
-           <button type="submit" class="button"><span>Влези</span></button>
+           <button type="submit" class="button"><span>Смени</span></button>
           </div>
         </form>
       </td>
       
-      <td class="hide" >
+      <td class="hide td-year" >
         <h4 th:text="${song.releaseYear}"></h4>
         <form class="year" sec:authorize="isAuthenticated()" th:action="@{/updateSongYear/{id}/{sid}(id=${show.id},sid=${song.id})}" method="post">
-         <input type="text" placeholder="update title" th:name="year" />
+         <input type="text" placeholder="смени година" th:name="year" />
           <button class="artist-btn" type="submit" >Смени</button>
         </form>
        </td>
-      
+      <td class="delete-song">
+          <form class="hide" sec:authorize="isAuthenticated()" th:action="@{/deleteSong/{id}/{sid}(id=${show.id},sid=${song.id})}" method="post">
+             <button class="btn-trash"><i class="bx bx-trash"></i></button>
+          </form>
+      </td>
       
       
       </tr>

@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,6 +33,7 @@ public class Show {
 	
 	private String audioUrl;
 	
+	@DateTimeFormat(pattern="dd-MM-yyyy")
 	private LocalDate published;
 	
 	@ManyToMany

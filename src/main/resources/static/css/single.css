@@ -23,8 +23,28 @@ img , audio , form {
     margin-left: auto;
     margin-right: auto;
     border-radius: 10%;
-    padding: 20px;
+    
 }
+
+audio {
+	padding: 20px;
+}
+
+.bx-trash {
+	font-size: 20px;
+	color: violet;
+}
+
+i:hover{
+	cursor:pointer;
+	color:red;
+}
+
+.btn-trash {
+	border: none;
+}
+
+
 
 table{
   width:100%;
@@ -54,7 +74,6 @@ table{
 	float: right;
 }
 
-
 td {
 	color:white;
 	border-bottom: 2px solid white;
@@ -63,7 +82,23 @@ td {
 }
 
 td:last-child {
+	width: 5%;
+}
+
+.td-year {
+	width: 15%;
 	text-align: center;
+}
+
+.td-year input {
+	size: 4;
+	width: 40px;
+}
+
+.artist-remove{
+	margin: 0px;
+	padding-bottom: 5px;
+	padding-left: 40px;
 }
 
 .artist-name{
@@ -101,6 +136,13 @@ a{
 }
 .new-song-link a:hover {
 	background-color: magenta;
+}
+
+@media (max-width: 1000px) {
+	.artist-info p {
+	margin-top: 5px;
+	padding-top: 5px;
+}
 }
 
 

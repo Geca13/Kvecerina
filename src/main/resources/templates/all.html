@@ -4,17 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Квечерина</title>
+  <title>Заводлива Квечерина</title>
+   <link rel="shortcut icon" type="image/ico" th:href="@{/img/favicon.ico}"/>
   <link rel="stylesheet" th:href="@{/css/index.css}">
   <link rel="stylesheet" th:href="@{/css/navbar.css}">
   <link rel="stylesheet" th:href="@{/css/popup.css}">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-  
-     
-   
+   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <style>
- 
-    </style>
+  </style>
 </head>
 
 <body>
@@ -28,10 +26,20 @@
  <section class='showsList'>
             <div class='shows-center'>
              <article class='show' th:each="show : ${shows}" >
-             <a th:href="@{/single/{id}(id=${show.id})}" class='btn-primary room-link'>
-               <img class="img" th:src="${show.imageUrl}" alt='sander image'/> </a>
+              <a th:href="@{/single/{id}(id=${show.id})}" class='btn-primary room-link'>
+               <img class="img" th:src="${show.imageUrl}" alt='sander image'/>
+              </a>
+              <div class="card-footer">
+               <div class="card-info">
                <h4 th:text="${show.title}"></h4>
-                
+               <h5 th:text="${#temporals.format(show.published, 'dd-MM-yyyy')}"></h5>
+               </div>
+               <div class="card-show-delete">
+               <form th:action="@{deleteShow/{id}(id=${show.id})}" method="post">
+               <button class="btn-trash" type="submit"><i class="bx bx-trash"></i></button>
+               </form>
+               </div>
+              </div> 
                </article>
 
             </div>
@@ -42,6 +50,7 @@
 
 <div th:replace="fragments/footer :: footer"></div>
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
+<script type="text/javascript" th:src="@{/js/popup.js}"></script>
 </body>
 
 </html>
