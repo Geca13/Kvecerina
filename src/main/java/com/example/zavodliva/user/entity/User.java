@@ -2,7 +2,6 @@ package com.example.zavodliva.user.entity;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 import javax.persistence.JoinColumn;
 import javax.persistence.CascadeType;
@@ -54,13 +53,11 @@ public class User {
 		this.password = password;
 	}
 
-	public User(String firstName, String lastName, @Email String email, String password, @Size(max = 45) String token,
-			Set<Role> roles) {
+	public User(String firstName, String lastName, @Email String email, String password,Set<Role> roles) {
 		super();
 		
 		this.email = email;
 		this.password = password;
-		this.token = token;
 		this.roles = roles;
 	}
 	
