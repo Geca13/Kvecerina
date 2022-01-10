@@ -29,7 +29,7 @@ public class ShowService {
 	
 
 	public List<Show> findAllShows() {
-		List<Show> shows = showRepository.findAll();
+		List<Show> shows = showRepository.findAllByOrderByPublishedDesc();
     return shows;
 	}
 
