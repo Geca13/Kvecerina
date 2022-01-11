@@ -47,7 +47,7 @@
      
      <tr th:each="song : ${show.songs}" class="cart">
       <td>
-        <div id="artist-info" class="artist-info " th:each="artist : ${song.artists}" >
+        <div id="artist-info" class="artist-info" th:each="artist : ${song.artists}" >
           <img class="td-img" th:src="${artist.imageUrl}">
           
           <p class="hide artist-name" th:text="${artist.fullName}"></p>

@@ -3,6 +3,8 @@ package com.example.zavodliva;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 
@@ -10,8 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.zavodliva.entity.Artist;
 import com.example.zavodliva.entity.Show;
+import com.example.zavodliva.entity.Song;
+import com.example.zavodliva.repository.ArtistRepository;
 import com.example.zavodliva.repository.ShowRepository;
+import com.example.zavodliva.repository.SongRepository;
 import com.example.zavodliva.user.entity.Role;
 import com.example.zavodliva.user.entity.RoleName;
 import com.example.zavodliva.user.entity.RoleRepository;
@@ -29,6 +35,12 @@ public class ZavodlivaKvecherinaApplication {
 	@Autowired
 	ShowRepository showRepository;
 	
+	@Autowired
+	SongRepository songRepository;
+	
+	@Autowired
+	ArtistRepository artistRepository;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(ZavodlivaKvecherinaApplication.class, args);
 	}
@@ -39,13 +51,128 @@ public class ZavodlivaKvecherinaApplication {
 		try {
 			
 			roleRepository.save(new Role(1L, RoleName.ROLE_ADMIN));
-			roleRepository.save(new Role(2L, RoleName.ROLE_USER));
 			
-			showRepository.save(new Show(1,"Човекот од пенкала", "/img/galeb.jpg" , "/audios/chovekodpenkala.mp3", LocalDate.of(2021, 12, 17), null));
+			artistRepository.save(new Artist(1, "Anatu" , "/img/anatu.jpg"));
+			artistRepository.save(new Artist(2, "Andra" , "/img/andra.jpg"));
+			artistRepository.save(new Artist(3, "Calum Scott" , "/img/calumscott.jpg"));
+			artistRepository.save(new Artist(4, "David Bisbal" , "/img/david-bisbal.jpg"));
+			artistRepository.save(new Artist(5, "Doja Cat" , "/img/Doja_Cat.jpg"));
+			artistRepository.save(new Artist(6, "Irina Rimes" , "/img/irina-rimas.jpg"));
+			artistRepository.save(new Artist(7, "Jason Mraz" , "/img/jasonmraz.jpg"));
+			artistRepository.save(new Artist(8, "Leona Lewis" , "/img/leonalewis.jpg"));
+			artistRepository.save(new Artist(9, "Sean Kingston" , "/img/sean-kingston.jpg"));
+			artistRepository.save(new Artist(10, "Victor Biliac" , "/img/victor-biliac.jpg"));
+			artistRepository.save(new Artist(11, "Zubi" , "/img/zubi.jpg"));
+			artistRepository.save(new Artist(12, "Marcela Mangabeira" , "/img/marcela-mangabeira.webp"));
+			artistRepository.save(new Artist(13, "Tahta Menezes" , "/img/tahta-menezes.jpg"));
+			artistRepository.save(new Artist(14, "Cecelia Dale" , "/img/cecelia-dale.jpg"));
+			artistRepository.save(new Artist(15, "Monique Kessous" , "/img/moni-kess.jpg"));
+			artistRepository.save(new Artist(16, "Cliff Richard" , "/img/clif-rich.webp"));
+			artistRepository.save(new Artist(17, "Manuel Carrasco" , "/img/manuel-carasco.jpg"));
 			
+			List<Artist> woman = new ArrayList<>();
+			woman.add(artistRepository.findById(5).get());
+			
+			songRepository.save(new Song(1, "Woman", "2021", woman));
+			
+			List<Artist> reason = new ArrayList<>();
+			reason.add(artistRepository.findById(3).get());
+			reason.add(artistRepository.findById(8).get());
+			
+			songRepository.save(new Song(2, "You Are The Reason (Duet Version)", "2018", reason));
+			
+			List<Artist> luna = new ArrayList<>();
+			luna.add(artistRepository.findById(7).get());
+			
+			songRepository.save(new Song(3, "Bella Luna", "2005", luna));
+			
+			List<Artist> girls = new ArrayList<>();
+			girls.add(artistRepository.findById(9).get());
+			
+			songRepository.save(new Song(4, "Beautiful Girls", "2007", girls));
+			
+			List<Artist> victor = new ArrayList<>();
+			victor.add(artistRepository.findById(10).get());
+			
+			songRepository.save(new Song(5, "Un Amore Grande", "2021", victor));
+			
+			List<Artist> irina = new ArrayList<>();
+			irina.add(artistRepository.findById(6).get());
+			
+			songRepository.save(new Song(6, "Bolnavi Amandoi", "2017", irina));
+			
+			List<Artist> andra = new ArrayList<>();
+			andra.add(artistRepository.findById(2).get());
+			andra.add(artistRepository.findById(4).get());
+			
+			songRepository.save(new Song(7, "Without You", "2016", andra));
+			
+			List<Artist> zubi = new ArrayList<>();
+			zubi.add(artistRepository.findById(1).get());
+			zubi.add(artistRepository.findById(11).get());
+			
+			songRepository.save(new Song(8, "Sugar", "2021", zubi));
+			
+            List<Song> penkalo = new ArrayList<>();
+            penkalo.add(songRepository.findById(1).get());
+            penkalo.add(songRepository.findById(2).get());
+            penkalo.add(songRepository.findById(3).get());
+            penkalo.add(songRepository.findById(4).get());
+            penkalo.add(songRepository.findById(5).get());
+            penkalo.add(songRepository.findById(6).get());
+            penkalo.add(songRepository.findById(7).get());
+            penkalo.add(songRepository.findById(8).get());
+			
+			showRepository.save(new Show(1,"Човекот од пенкала", "/img/penkalo.jpg" , "/audios/chovekodpenkala.mp3", LocalDate.of(2021, 12, 17), penkalo));
+			
+			List<Artist> marcela = new ArrayList<>();
+			marcela.add(artistRepository.findById(12).get());
+			
+			songRepository.save(new Song(9, "All I Want For Christmas Is You", "2006", marcela));
+			
+			List<Artist> tahta = new ArrayList<>();
+			tahta.add(artistRepository.findById(13).get());
+			
+			songRepository.save(new Song(10, "Happy Christmas (War Is Over)", "2006", tahta));
+			
+			List<Artist> dale = new ArrayList<>();
+			dale.add(artistRepository.findById(14).get());
+			
+			songRepository.save(new Song(11, "Jingle Bells", "2005", dale));
+			
+			List<Artist> moniq = new ArrayList<>();
+			moniq.add(artistRepository.findById(15).get());
+			
+			songRepository.save(new Song(12, "Last Christmas", "2006", moniq));
+			
+			List<Artist> cliff = new ArrayList<>();
+			cliff.add(artistRepository.findById(16).get());
+			
+			songRepository.save(new Song(13, "Mistletoe and Wine", "1988", cliff));
+			
+			List<Artist> manuel = new ArrayList<>();
+			manuel.add(artistRepository.findById(17).get());
+			
+			songRepository.save(new Song(14, "Llegó Navidad", "2020", manuel));
+			
+			List<Artist> dale2 = new ArrayList<>();
+			dale2.add(artistRepository.findById(14).get());
+			
+			songRepository.save(new Song(15, "Let It Snow! Let It Snow! Let It Snow!", "2005", dale2));
+			
+			List<Song> praznicna = new ArrayList<>();
+			praznicna.add(songRepository.findById(9).get());
+			praznicna.add(songRepository.findById(10).get());
+			praznicna.add(songRepository.findById(11).get());
+			praznicna.add(songRepository.findById(12).get());
+			praznicna.add(songRepository.findById(13).get());
+			praznicna.add(songRepository.findById(14).get());
+			praznicna.add(songRepository.findById(15).get());
+			
+			showRepository.save(new Show(2,"Денот пред или Денот потоа", "/img/ludata.jfif" , "/audios/praznicna.mp3", LocalDate.of(2021, 12, 29), praznicna));
 		} catch (Exception e) {
 			System.out.println("Post construct NOT called");
 	}
-	
+		
 	}
 }
