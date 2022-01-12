@@ -206,7 +206,7 @@ body {
   
 .card-footer {
 	height: 80px;
-	padding: 10px;
+	padding: 1px;
 	overflow: hidden;
 	
 }
@@ -236,6 +236,8 @@ body {
 .btn-trash {
 	border: none;
 }
+
+
 
 
 @media (max-width: 700px) {
@@ -286,3 +288,5 @@ body {
 	max-width: 600px;
 	border-radius: 50%;
 }
+
+

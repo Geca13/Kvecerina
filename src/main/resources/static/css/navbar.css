@@ -51,10 +51,16 @@
 	
 }
 
+.footer-logo {
+	max-width: 100px;
+	height: auto;
+	padding-top:  20px;
+}
+
 .section-footer {
   background: var(--primary-color);
   color: #fff;
-  padding: 4rem 0;
+  padding: 1rem 0;
   
   left: 0;
   bottom: 0;

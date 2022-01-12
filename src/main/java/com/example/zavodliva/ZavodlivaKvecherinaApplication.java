@@ -169,7 +169,7 @@ public class ZavodlivaKvecherinaApplication {
 			praznicna.add(songRepository.findById(14).get());
 			praznicna.add(songRepository.findById(15).get());
 			
-			showRepository.save(new Show(2,"Денот пред или Денот потоа", "/img/ludata.jfif" , "/audios/praznicna.mp3", LocalDate.of(2021, 12, 29), praznicna));
+			showRepository.save(new Show(2,"Денот пред или потоа", "/img/ludata.jfif" , "/audios/praznicna.mp3", LocalDate.of(2021, 12, 29), praznicna));
 		} catch (Exception e) {
 			System.out.println("Post construct NOT called");
 	}
