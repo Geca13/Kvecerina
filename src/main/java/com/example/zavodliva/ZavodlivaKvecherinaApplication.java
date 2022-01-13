@@ -69,6 +69,16 @@ public class ZavodlivaKvecherinaApplication {
 			artistRepository.save(new Artist(15, "Monique Kessous" , "/img/moni-kess.jpg"));
 			artistRepository.save(new Artist(16, "Cliff Richard" , "/img/clif-rich.webp"));
 			artistRepository.save(new Artist(17, "Manuel Carrasco" , "/img/manuel-carasco.jpg"));
+			artistRepository.save(new Artist(18, "Sergey Grischuk" , "/img/artist.jpg"));
+			artistRepository.save(new Artist(19, "Houssem Amari" , "/img/hous-amari.jpg"));
+			artistRepository.save(new Artist(20, "Amelie Martinez" , "/img/amelie.jpg"));
+			artistRepository.save(new Artist(21, "Andy Williams" , "/img/andy-williams.jpg"));
+			artistRepository.save(new Artist(22, "Kygo" , "/img/kygo.jpg"));
+			artistRepository.save(new Artist(23, "Miguel" , "/img/miguel.png"));
+			artistRepository.save(new Artist(24, "Brotherhood Of Man" , "/img/clif-rich.webp"));
+			artistRepository.save(new Artist(25, "Matteo Bocelli" , "/img/mateo.jpg"));
+			artistRepository.save(new Artist(26, "Eve St. Jones" , "/img/eve.jpg"));
+			artistRepository.save(new Artist(27, "Dim Zach" , "/img/dim-zach.jpg"));
 			
 			List<Artist> woman = new ArrayList<>();
 			woman.add(artistRepository.findById(5).get());
@@ -170,6 +180,58 @@ public class ZavodlivaKvecherinaApplication {
 			praznicna.add(songRepository.findById(15).get());
 			
 			showRepository.save(new Show(2,"Денот пред или потоа", "/img/ludata.jfif" , "/audios/praznicna.mp3", LocalDate.of(2021, 12, 29), praznicna));
+			
+			
+			List<Artist> sergey = new ArrayList<>();
+			sergey.add(artistRepository.findById(18).get());
+			
+			songRepository.save(new Song(16, "Rain...Rain ( Instrumental)", "2021", sergey));
+			
+			List<Artist> porti = new ArrayList<>();
+			porti.add(artistRepository.findById(19).get());
+			porti.add(artistRepository.findById(20).get());
+			
+			songRepository.save(new Song(17, "Por Ti", "2020", porti));
+			
+			List<Artist> andi = new ArrayList<>();
+			andi.add(artistRepository.findById(21).get());
+			andi.add(artistRepository.findById(27).get());
+			
+			songRepository.save(new Song(18, "Love Story (Dim Zach Disco Mix)", "2017", andi));
+			
+			List<Artist> remind = new ArrayList<>();
+			remind.add(artistRepository.findById(22).get());
+			remind.add(artistRepository.findById(23).get());
+			
+			songRepository.save(new Song(19, "Remind Me to Forget", "2017", remind));
+			
+			List<Artist> kisses = new ArrayList<>();
+			kisses.add(artistRepository.findById(24).get());
+			
+			songRepository.save(new Song(20, "Save Your Kisses For Me", "2017", kisses));
+			
+			List<Artist> solo = new ArrayList<>();
+			solo.add(artistRepository.findById(25).get());
+			
+			songRepository.save(new Song(21, "Solo", "2021", solo));
+			
+			List<Artist> eve = new ArrayList<>();
+			eve.add(artistRepository.findById(26).get());
+			
+			songRepository.save(new Song(22, "Everywhere", "2020", eve));
+			
+			List<Song> prva22 = new ArrayList<>();
+			prva22.add(songRepository.findById(16).get());
+			prva22.add(songRepository.findById(17).get());
+			prva22.add(songRepository.findById(18).get());
+			prva22.add(songRepository.findById(19).get());
+			prva22.add(songRepository.findById(20).get());
+			prva22.add(songRepository.findById(21).get());
+			prva22.add(songRepository.findById(22).get());
+			
+			showRepository.save(new Show(3,"Балон од желби", "/img/baloon.jpg" , null, LocalDate.of(2022, 01, 14), prva22));
+			
+			
 		} catch (Exception e) {
 			System.out.println("Post construct NOT called");
 	}

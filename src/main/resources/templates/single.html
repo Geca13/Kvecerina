@@ -31,8 +31,9 @@
       </form>
 
      <div class="container-audio">
-         <audio id="audio" controls controlsList="nodownload">
-          <source th:src="${show.audioUrl}" >
+     
+         <audio th:if="${show.audioUrl != null}" id="audio" controls controlsList="nodownload">
+          <source  th:src="${show.audioUrl}" >
          </audio>
      </div>   
     </div>

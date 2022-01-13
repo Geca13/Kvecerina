@@ -42,12 +42,14 @@
     <!-- Large Text -->
     <section th:unless="${show == null}" id="about" class="section-b">
       <div class="overlay">
-      <h3 >Најнова емисија</h3>
+      <h3 th:if="${show.audioUrl != null}">Најнова емисија</h3>
         <div class="section-b-inner py-5">
+          <h3 th:unless="${show.audioUrl != null}">Наскоро</h3>
           
-          <h2 th:text="${show.title}" >Најнова емисија</h2>
+          <h2 th:text="${show.title}" ></h2>
           
-          <audio  id="audio" controls controlsList="nodownload" >
+          
+          <audio th:if="${show.audioUrl != null}"  id="audio" controls controlsList="nodownload" >
                <source th:src="${show.audioUrl}" >
               </audio>
         </div>
