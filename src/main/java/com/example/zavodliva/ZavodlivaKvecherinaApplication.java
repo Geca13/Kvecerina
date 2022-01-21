@@ -365,7 +365,7 @@ public class ZavodlivaKvecherinaApplication {
 			prikaznata.add(songRepository.findById(37).get());
 			prikaznata.add(songRepository.findById(38).get());
 			
-			showRepository.save(new Show(4,"Приказната која ја чекам", "/img/prikaznata.jpg" ,null, LocalDate.of(2022, 01, 21), prikaznata));
+			showRepository.save(new Show(4,"Приказната која ја чекам", "/img/prikaznata.jpg" ,"/audios/prikaznata.mp3", LocalDate.of(2022, 01, 21), prikaznata));
 			
 		} catch (Exception e) {
 			System.out.println("Post construct NOT called");
