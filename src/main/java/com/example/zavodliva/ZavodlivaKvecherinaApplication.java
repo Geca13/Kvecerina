@@ -91,17 +91,17 @@ public class ZavodlivaKvecherinaApplication {
 			artistRepository.save(new Artist(36, "Caro Emerald" , "/img/CaroEmerald.jpg"));
 			artistRepository.save(new Artist(37, "Nieggman" , "/img/Nieggman.jpg"));
 			*/
-			artistRepository.save(new Artist(38, "Shakatak" , "/img/shakatak.jpg"));
-			artistRepository.save(new Artist(39, "Ash" , "/img/ash.jpg"));
-			artistRepository.save(new Artist(40, "Adele" , "/img/adele.png"));
-			artistRepository.save(new Artist(41, "Sting" , "/img/sting.jpg"));
-			artistRepository.save(new Artist(42, "Eric Clapton" , "/img/clapton.png"));
-			artistRepository.save(new Artist(43, "Vanotek" , "/img/Vanotek.jpg"));
-			artistRepository.save(new Artist(44, "Denitia" , "/img/denitia.jpg"));
-			artistRepository.save(new Artist(45, "The Frajle" , "/img/frajle.jpg"));
-			artistRepository.save(new Artist(46, "Tijana" , "/img/tijana.jpg"));
-			artistRepository.save(new Artist(47, "Nicki Parrott" , "/img/parrot.jpg"));
-			artistRepository.save(new Artist(48, "MikeAndTess" , "/img/mikeandtess.jpg"));
+			artistRepository.save(new Artist(29, "Shakatak" , "/img/shakatak.jpg"));
+			artistRepository.save(new Artist(30, "Ash" , "/img/ash.jpg"));
+			artistRepository.save(new Artist(31, "Adele" , "/img/adele.png"));
+			artistRepository.save(new Artist(32, "Sting" , "/img/sting.jpg"));
+			artistRepository.save(new Artist(33, "Eric Clapton" , "/img/clapton.png"));
+			artistRepository.save(new Artist(34, "Vanotek" , "/img/Vanotek.jpg"));
+			artistRepository.save(new Artist(35, "Denitia" , "/img/denitia.jpg"));
+			artistRepository.save(new Artist(36, "The Frajle" , "/img/frajle.jpg"));
+			artistRepository.save(new Artist(37, "Tijana" , "/img/tijana.jpg"));
+			artistRepository.save(new Artist(38, "Nicki Parrott" , "/img/parrot.jpg"));
+			artistRepository.save(new Artist(39, "MikeAndTess" , "/img/mikeandtess.jpg"));
 			
 			
 			List<Artist> woman = new ArrayList<>();
@@ -318,53 +318,53 @@ public class ZavodlivaKvecherinaApplication {
 			showRepository.save(new Show(5,"Полноќен воз", "/img/train.jpg" , "/audios/train.mp3", LocalDate.of(2022, 01, 21), trains));
 			*/
 			List<Artist> birds = new ArrayList<>();
-			birds.add(artistRepository.findById(38).get());
+			birds.add(artistRepository.findById(29).get());
 			
-			songRepository.save(new Song(32, "Night Birds", "2019", birds));
+			songRepository.save(new Song(24, "Night Birds", "2019", birds));
 			 
 			List<Artist> ash = new ArrayList<>();
-			ash.add(artistRepository.findById(39).get());
+			ash.add(artistRepository.findById(30).get());
 			ash.add(artistRepository.findById(20).get());
 			
-			songRepository.save(new Song(33, "Dans La Peau", "2019", ash));
+			songRepository.save(new Song(25, "Dans La Peau", "2019", ash));
 			
 			List<Artist> adele = new ArrayList<>();
-			adele.add(artistRepository.findById(40).get());
+			adele.add(artistRepository.findById(31).get());
 			
-			songRepository.save(new Song(34, "Million Years Ago", "2015", adele));
+			songRepository.save(new Song(26, "Million Years Ago", "2015", adele));
 			
 			List<Artist> mikeandtess = new ArrayList<>();
-			mikeandtess.add(artistRepository.findById(41).get());
-			mikeandtess.add(artistRepository.findById(42).get());
-			mikeandtess.add(artistRepository.findById(48).get());
+			mikeandtess.add(artistRepository.findById(32).get());
+			mikeandtess.add(artistRepository.findById(33).get());
+			mikeandtess.add(artistRepository.findById(39).get());
 			
-			songRepository.save(new Song(35, "It's Probably Me (Mikeandtess Boot Edit)", "2014", mikeandtess));
+			songRepository.save(new Song(27, "It's Probably Me (Mikeandtess Boot Edit)", "2014", mikeandtess));
 			
 			List<Artist> someone  = new ArrayList<>();
-			someone.add(artistRepository.findById(43).get());
-			someone.add(artistRepository.findById(44).get());
+			someone.add(artistRepository.findById(34).get());
+			someone.add(artistRepository.findById(35).get());
 			
-			songRepository.save(new Song(36, "Someone", "2021", someone));
+			songRepository.save(new Song(28, "Someone", "2021", someone));
 			
 			List<Artist> frajle  = new ArrayList<>();
-			frajle.add(artistRepository.findById(45).get());
-			frajle.add(artistRepository.findById(46).get());
+			frajle.add(artistRepository.findById(36).get());
+			frajle.add(artistRepository.findById(37).get());
 			
-			songRepository.save(new Song(37, "ZIVOTE KRENI", "2015", frajle));
+			songRepository.save(new Song(29, "ZIVOTE KRENI", "2015", frajle));
 			
 			List<Artist> parrot = new ArrayList<>();
-			parrot.add(artistRepository.findById(47).get());
+			parrot.add(artistRepository.findById(38).get());
 			
-			songRepository.save(new Song(38, "Will Wait For You", "2013", parrot));
+			songRepository.save(new Song(30, "Will Wait For You", "2013", parrot));
 			
 			List<Song> prikaznata = new ArrayList<>();
-			prikaznata.add(songRepository.findById(32).get());
-			prikaznata.add(songRepository.findById(33).get());
-			prikaznata.add(songRepository.findById(34).get());
-			prikaznata.add(songRepository.findById(35).get());
-			prikaznata.add(songRepository.findById(36).get());
-			prikaznata.add(songRepository.findById(37).get());
-			prikaznata.add(songRepository.findById(38).get());
+			prikaznata.add(songRepository.findById(24).get());
+			prikaznata.add(songRepository.findById(25).get());
+			prikaznata.add(songRepository.findById(26).get());
+			prikaznata.add(songRepository.findById(27).get());
+			prikaznata.add(songRepository.findById(28).get());
+			prikaznata.add(songRepository.findById(29).get());
+			prikaznata.add(songRepository.findById(30).get());
 			
 			showRepository.save(new Show(4,"Приказната која ја чекам", "/img/prikaznata.jpg" ,"/audios/prikaznata.mp3", LocalDate.of(2022, 01, 21), prikaznata));
 			
