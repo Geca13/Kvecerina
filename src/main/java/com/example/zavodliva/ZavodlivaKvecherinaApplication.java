@@ -80,6 +80,7 @@ public class ZavodlivaKvecherinaApplication {
 			artistRepository.save(new Artist(26, "Eve St. Jones" , "/img/eve.jpg"));
 			artistRepository.save(new Artist(27, "Dim Zach" , "/img/dim-zach.jpg"));
 			artistRepository.save(new Artist(28, "Lila Liu" , "/img/lila-liu.jpg"));
+			/*
 			artistRepository.save(new Artist(29, "Russio Lorro" , "/img/artist.jpg"));
 			artistRepository.save(new Artist(30, "Karen Souza" , "/img/karensouza.jpg"));
 			artistRepository.save(new Artist(31, "DHARIA" , "/img/DHARIA.jpg"));
@@ -89,7 +90,7 @@ public class ZavodlivaKvecherinaApplication {
 			artistRepository.save(new Artist(35, "Morandi" , "/img/morandi.jpg"));
 			artistRepository.save(new Artist(36, "Caro Emerald" , "/img/CaroEmerald.jpg"));
 			artistRepository.save(new Artist(37, "Nieggman" , "/img/Nieggman.jpg"));
-			
+			*/
 			artistRepository.save(new Artist(38, "Shakatak" , "/img/shakatak.jpg"));
 			artistRepository.save(new Artist(39, "Ash" , "/img/ash.jpg"));
 			artistRepository.save(new Artist(40, "Adele" , "/img/adele.png"));
@@ -261,7 +262,7 @@ public class ZavodlivaKvecherinaApplication {
 			
 			showRepository.save(new Show(3,"Балон од желби", "/img/baloon.jpg" , "/audios/balon.mp3", LocalDate.of(2022, 01, 14), prva22));
 			
-			
+			/*
 			List<Artist> rain = new ArrayList<>();
 			rain.add(artistRepository.findById(29).get());
 			
@@ -314,8 +315,8 @@ public class ZavodlivaKvecherinaApplication {
 			trains.add(songRepository.findById(30).get());
 			trains.add(songRepository.findById(31).get());
 			
-			//showRepository.save(new Show(5,"Полноќен воз", "/img/train.jpg" , "/audios/train.mp3", LocalDate.of(2022, 01, 21), trains));
-			
+			showRepository.save(new Show(5,"Полноќен воз", "/img/train.jpg" , "/audios/train.mp3", LocalDate.of(2022, 01, 21), trains));
+			*/
 			List<Artist> birds = new ArrayList<>();
 			birds.add(artistRepository.findById(38).get());
 			
