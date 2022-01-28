@@ -14,6 +14,8 @@ public interface ShowRepository extends JpaRepository<Show, Integer> {
 
 	List<Show> findAllByOrderByPublishedDesc();
 
+	Show findTopByOrderByPublishedDesc();
+
 
 	
 

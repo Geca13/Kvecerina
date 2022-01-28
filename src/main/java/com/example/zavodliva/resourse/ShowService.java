@@ -57,7 +57,7 @@ public class ShowService {
 	}
 
 	public Show lastShow() {
-		Show show =showRepository.findTopByOrderByIdDesc();
+		Show show =showRepository.findTopByOrderByPublishedDesc();
 		return show;
 	}
 

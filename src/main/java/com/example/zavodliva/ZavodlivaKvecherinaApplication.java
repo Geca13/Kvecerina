@@ -63,12 +63,33 @@ public class ZavodlivaKvecherinaApplication {
 			artistRepository.save(new Artist(9, "Sean Kingston" , "/img/sean-kingston.jpg"));
 			artistRepository.save(new Artist(10, "Victor Biliac" , "/img/victor-biliac.jpg"));
 			artistRepository.save(new Artist(11, "Zubi" , "/img/zubi.jpg"));
+			/*
 			artistRepository.save(new Artist(12, "Marcela Mangabeira" , "/img/marcela-mangabeira.webp"));
 			artistRepository.save(new Artist(13, "Tahta Menezes" , "/img/tahta-menezes.jpg"));
 			artistRepository.save(new Artist(14, "Cecelia Dale" , "/img/cecelia-dale.jpg"));
 			artistRepository.save(new Artist(15, "Monique Kessous" , "/img/moni-kess.jpg"));
 			artistRepository.save(new Artist(16, "Cliff Richard" , "/img/clif-rich.webp"));
 			artistRepository.save(new Artist(17, "Manuel Carrasco" , "/img/manuel-carasco.jpg"));
+			artistRepository.save(new Artist(29, "Russio Lorro" , "/img/artist.jpg"));
+			artistRepository.save(new Artist(30, "Karen Souza" , "/img/karensouza.jpg"));
+			artistRepository.save(new Artist(31, "DHARIA" , "/img/DHARIA.jpg"));
+			artistRepository.save(new Artist(32, "Ermal Meta" , "/img/ErmalMeta.jpg"));
+			artistRepository.save(new Artist(33, "Elisa" , "/img/Elisa.jpg"));
+			artistRepository.save(new Artist(34, "Amir Haddad" , "/img/AmirHaddad.jpg"));
+			artistRepository.save(new Artist(35, "Morandi" , "/img/morandi.jpg"));
+			artistRepository.save(new Artist(36, "Caro Emerald" , "/img/CaroEmerald.jpg"));
+			artistRepository.save(new Artist(37, "Nieggman" , "/img/Nieggman.jpg"));
+			*/
+			
+			artistRepository.save(new Artist(12, "Mahmut Orhan" , "/img/mahmutorhan.jpg"));
+			artistRepository.save(new Artist(13, "Ali Arutan" , "/img/aliarutan.jpg"));
+			artistRepository.save(new Artist(14, "Selin" , "/img/selin.jpg"));
+			artistRepository.save(new Artist(15, "Van Morrison" , "/img/vanmorison.jfif"));
+			artistRepository.save(new Artist(16, "DJ Pantelis" , "/img/pantelis.jpg"));
+			artistRepository.save(new Artist(17, "Nick Saley" , "/img/saley.jfif"));
+			
+			
+			
 			artistRepository.save(new Artist(18, "Sergey Grischuk" , "/img/artist.jpg"));
 			artistRepository.save(new Artist(19, "Houssem Amari" , "/img/hous-amari.jpg"));
 			artistRepository.save(new Artist(20, "Amelie Martinez" , "/img/amelie.jpg"));
@@ -80,17 +101,7 @@ public class ZavodlivaKvecherinaApplication {
 			artistRepository.save(new Artist(26, "Eve St. Jones" , "/img/eve.jpg"));
 			artistRepository.save(new Artist(27, "Dim Zach" , "/img/dim-zach.jpg"));
 			artistRepository.save(new Artist(28, "Lila Liu" , "/img/lila-liu.jpg"));
-			/*
-			artistRepository.save(new Artist(29, "Russio Lorro" , "/img/artist.jpg"));
-			artistRepository.save(new Artist(30, "Karen Souza" , "/img/karensouza.jpg"));
-			artistRepository.save(new Artist(31, "DHARIA" , "/img/DHARIA.jpg"));
-			artistRepository.save(new Artist(32, "Ermal Meta" , "/img/ErmalMeta.jpg"));
-			artistRepository.save(new Artist(33, "Elisa" , "/img/Elisa.jpg"));
-			artistRepository.save(new Artist(34, "Amir Haddad" , "/img/AmirHaddad.jpg"));
-			artistRepository.save(new Artist(35, "Morandi" , "/img/morandi.jpg"));
-			artistRepository.save(new Artist(36, "Caro Emerald" , "/img/CaroEmerald.jpg"));
-			artistRepository.save(new Artist(37, "Nieggman" , "/img/Nieggman.jpg"));
-			*/
+			
 			artistRepository.save(new Artist(29, "Shakatak" , "/img/shakatak.jpg"));
 			artistRepository.save(new Artist(30, "Ash" , "/img/ash.jpg"));
 			artistRepository.save(new Artist(31, "Adele" , "/img/adele.png"));
@@ -103,6 +114,14 @@ public class ZavodlivaKvecherinaApplication {
 			artistRepository.save(new Artist(38, "Nicki Parrott" , "/img/parrot.jpg"));
 			artistRepository.save(new Artist(39, "MikeAndTess" , "/img/mikeandtess.jpg"));
 			
+			artistRepository.save(new Artist(40, "Ikonnya" , "/img/ikonia.jpg"));
+			artistRepository.save(new Artist(41, "Mike Posner" , "/img/posner.jpg"));
+			artistRepository.save(new Artist(42, "Robbie Williams" , "/img/robbie.jpg"));
+			artistRepository.save(new Artist(43, "Kaliopi" , "/img/kaliopi.jpg"));
+			artistRepository.save(new Artist(44, "Massimo" , "/img/massimo.jpg"));
+			artistRepository.save(new Artist(45, "Paul Anka" , "/img/paulanka.jpg"));
+			artistRepository.save(new Artist(46, "Saab" , "/img/seeb.jpg"));
+			artistRepository.save(new Artist(47, "Måneskin" , "/img/maneskin.png"));
 			
 			List<Artist> woman = new ArrayList<>();
 			woman.add(artistRepository.findById(5).get());
@@ -159,6 +178,7 @@ public class ZavodlivaKvecherinaApplication {
 			
 			showRepository.save(new Show(1,"Човекот од пенкала", "/img/penkalo.jpg" , "/audios/chovekodpenkala.mp3", LocalDate.of(2022, 01, 12), penkalo));
 			
+			/*
 			List<Artist> marcela = new ArrayList<>();
 			marcela.add(artistRepository.findById(12).get());
 			
@@ -204,7 +224,7 @@ public class ZavodlivaKvecherinaApplication {
 			praznicna.add(songRepository.findById(15).get());
 			
 			showRepository.save(new Show(2,"Денот пред или потоа", "/img/ludata.jfif" , "/audios/praznicna.mp3", LocalDate.of(2021, 12, 29), praznicna));
-			
+			*/
 			
 			List<Artist> sergey = new ArrayList<>();
 			sergey.add(artistRepository.findById(18).get());
@@ -367,6 +387,63 @@ public class ZavodlivaKvecherinaApplication {
 			prikaznata.add(songRepository.findById(30).get());
 			
 			showRepository.save(new Show(4,"Приказната која ја чекам", "/img/prikaznata.jpg" ,"/audios/prikaznata.mp3", LocalDate.of(2022, 01, 21), prikaznata));
+			
+			List<Artist> control = new ArrayList<>();
+			control.add(artistRepository.findById(12).get());
+			control.add(artistRepository.findById(13).get());
+			control.add(artistRepository.findById(14).get());
+			
+			songRepository.save(new Song(9, "In Control", "2020", control));
+			
+			List<Artist> brown = new ArrayList<>();
+			brown.add(artistRepository.findById(15).get());
+			
+			songRepository.save(new Song(10, "Brown Eyed Girl", "1967", brown));
+			List<Artist> pantelis = new ArrayList<>();
+			pantelis.add(artistRepository.findById(16).get());
+			pantelis.add(artistRepository.findById(17).get());
+			pantelis.add(artistRepository.findById(40).get());
+			
+			songRepository.save(new Song(11, "Unexpected Lovers", "2021", pantelis));
+			
+			List<Artist> robbie = new ArrayList<>();
+			robbie.add(artistRepository.findById(42).get());
+			
+			songRepository.save(new Song(12, "You Know Me", "2009", robbie));
+			
+			List<Artist> moneskin = new ArrayList<>();
+			moneskin.add(artistRepository.findById(47).get());
+			
+			songRepository.save(new Song(13, "Torna a casa", "2018", moneskin));
+			
+			List<Artist> kaliopi = new ArrayList<>();
+			kaliopi.add(artistRepository.findById(43).get());
+			kaliopi.add(artistRepository.findById(44).get());
+			
+			songRepository.save(new Song(14, "Melankolija", "2008", kaliopi));
+			
+			List<Artist> enka = new ArrayList<>();
+			enka.add(artistRepository.findById(45).get());
+			
+			songRepository.save(new Song(15, "Diana", "1957", enka));
+			
+			List<Artist> posner = new ArrayList<>();
+			posner.add(artistRepository.findById(41).get());
+			posner.add(artistRepository.findById(46).get());
+			
+			songRepository.save(new Song(31, "I Took A Pill In Ibiza (Seeb Remix)", "2016", posner));
+			
+			List<Song> rodendenska = new ArrayList<>();
+			rodendenska.add(songRepository.findById(9).get());
+			rodendenska.add(songRepository.findById(10).get());
+			rodendenska.add(songRepository.findById(11).get());
+			rodendenska.add(songRepository.findById(12).get());
+			rodendenska.add(songRepository.findById(13).get());
+			rodendenska.add(songRepository.findById(14).get());
+			rodendenska.add(songRepository.findById(15).get());
+			rodendenska.add(songRepository.findById(31).get());
+			
+			showRepository.save(new Show(2,"Роденденска", "/img/rodendenn.jfif" ,"/audios/rodendenska.mp3", LocalDate.of(2022, 01, 28), rodendenska));
 			
 		} catch (Exception e) {
 			System.out.println("Post construct NOT called");
