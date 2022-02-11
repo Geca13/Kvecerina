@@ -79,6 +79,14 @@ public class ZavodlivaKvecherinaApplication {
 			artistRepository.save(new Artist(35, "Morandi" , "/img/morandi.jpg"));
 			artistRepository.save(new Artist(36, "Caro Emerald" , "/img/CaroEmerald.jpg"));
 			artistRepository.save(new Artist(37, "Nieggman" , "/img/Nieggman.jpg"));
+			
+			artistRepository.save(new Artist(1, "Maroon 5" , "/img/maroon5.jpg"));
+			artistRepository.save(new Artist(2, "Ilkan Gunuc & WRS" , "/img/ilkan.jfif"));
+			artistRepository.save(new Artist(3, "Vlado Janevski" , "/img/vladoj.jpg"));
+			artistRepository.save(new Artist(4, "Céline Dion" , "/img/celine-dion.jpg"));
+			artistRepository.save(new Artist(5, "Erma Franklin" , "/img/arethafr.jpg"));
+			artistRepository.save(new Artist(6, "Paradis" , "/img/paradis.jfif"));
+			artistRepository.save(new Artist(7, "Biba Dodeva" , "/img/biba-dodeva.jpg"));
 			*/
 			
 			artistRepository.save(new Artist(12, "Mahmut Orhan" , "/img/mahmutorhan.jpg"));
@@ -122,6 +130,45 @@ public class ZavodlivaKvecherinaApplication {
 			artistRepository.save(new Artist(45, "Paul Anka" , "/img/paulanka.jpg"));
 			artistRepository.save(new Artist(46, "Saab" , "/img/seeb.jpg"));
 			artistRepository.save(new Artist(47, "Måneskin" , "/img/maneskin.png"));
+			
+			/*
+			 
+			 List<Artist> maroon = new ArrayList<>();
+			woman.add(artistRepository.findById(1).get());
+			
+			songRepository.save(new Song(1, "The Way You Look Tonight", "2010", maroon));
+			
+			List<Artist> ilkan = new ArrayList<>();
+			reason.add(artistRepository.findById(2).get());
+			
+			
+			songRepository.save(new Song(2, "Amore", "2021", ilkan));
+			
+			List<Artist> vlado = new ArrayList<>();
+			luna.add(artistRepository.findById(3).get());
+			
+			songRepository.save(new Song(3, "Откако си Негова", "2019", vlado));
+			
+			List<Artist> dion = new ArrayList<>();
+			girls.add(artistRepository.findById(4).get());
+			
+			songRepository.save(new Song(4, "Courage", "2019", dion));
+			
+			List<Artist> aretha = new ArrayList<>();
+			victor.add(artistRepository.findById(5).get());
+			
+			songRepository.save(new Song(5, "Piece of My Heart", "1967", aretha));
+			
+			List<Artist> paradis = new ArrayList<>();
+			irina.add(artistRepository.findById(6).get());
+			
+			songRepository.save(new Song(6, "Toi Et Moi", "2016", paradis));
+			
+			List<Artist> bibado = new ArrayList<>();
+			andra.add(artistRepository.findById(7).get());
+			
+			songRepository.save(new Song(7, "Како Некогаш", "2019", bibado));
+			 */
 			
 			List<Artist> woman = new ArrayList<>();
 			woman.add(artistRepository.findById(5).get());
