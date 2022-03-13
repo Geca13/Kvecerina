@@ -150,8 +150,16 @@ body {
   font-family: 'AlexaScript';
   font-weight: 300;
   font-size: 3rem;
-  padding: 50px;
+  padding: 0px;
   margin-top: 0.2rem;
+}
+
+.section-b-inner h4 {
+  font-family: 'AlexaScript';
+  font-weight: 200;
+  font-size: 2rem;
+  padding-bottom: 55px;
+  margin-top: 0.1rem;
 }
 
 

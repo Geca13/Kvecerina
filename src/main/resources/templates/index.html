@@ -46,7 +46,8 @@
         <div class="section-b-inner py-5">
           <h3 th:unless="${show.audioUrl != null}">Наскоро</h3>
           
-          <h2 th:text="${show.title}" ></h2>
+          <h2 th:text="${show.title}"></h2>
+          <h4>Гостин во емисијата: Тик Так</h4>
           
           
           <audio th:if="${show.audioUrl != null}"  id="audio" controls controlsList="nodownload" >
